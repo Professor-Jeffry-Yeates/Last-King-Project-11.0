@@ -587,37 +587,39 @@ class Canvas():
         """Change the state of the canvas to normal or disabled. The canvas can also be HIDDEN by affecting it's packing.
         state: 'normal', 'disabled' or 'hidden'. Not working
         """
-        match newState.lower():
-            case 'disabled': 
-                stateUsed = tk.DISABLED
-            case 'hidden': 
-                stateUsed = tk.HIDDEN
-            case _: # 'normal' or anything else
-                stateUsed = tk.NORMAL
-            
-        if self.state != stateUsed:
-            match stateUsed:
-                case tk.DISABLED:
-                    self.widget.config(state=stateUsed)
-                case tk.HIDDEN: # Nice but not working
-                    if self.pack:
-                        self.widget.pack_forget()
-                    elif self.place:
-                        self.widget.place_forget()
-                    elif self.grid:
-                        self.widget.grid_forget()
-                case tk.NORMAL:
-                    if self.state == tk.DISABLED:
+        if type(newState) == str:
+            stateLowerCase = newState.lower()
+            match stateLowerCase:
+                case 'disabled': 
+                    stateUsed = tk.DISABLED
+                case 'hidden': 
+                    stateUsed = tk.HIDDEN
+                case _: # 'normal' or anything else
+                    stateUsed = tk.NORMAL
+
+            if self.state != stateUsed:
+                match stateUsed:
+                    case tk.DISABLED:
                         self.widget.config(state=stateUsed)
-                    if self.state == tk.HIDDEN:
-                        if self.place:
-                            self.widget.place(self.x, self.y)
-                        elif self.pack:
-                            self.widget.pack(**self.pack)
+                    case tk.HIDDEN: # Nice but not working
+                        if self.pack:
+                            self.widget.pack_forget()
+                        elif self.place:
+                            self.widget.place_forget()
                         elif self.grid:
-                            self.widget.grid(**self.grid)
-            self.root.update_idletasks()
-            self.state = stateUsed
+                            self.widget.grid_forget()
+                    case tk.NORMAL:
+                        if self.state == tk.DISABLED:
+                            self.widget.config(state=stateUsed)
+                        if self.state == tk.HIDDEN:
+                            if self.place:
+                                self.widget.place(self.x, self.y)
+                            elif self.pack:
+                                self.widget.pack(**self.pack)
+                            elif self.grid:
+                                self.widget.grid(**self.grid)
+                self.root.update_idletasks()
+                self.state = stateUsed
 
     def setBackground(self, color):
         """Set background color of the window"""
