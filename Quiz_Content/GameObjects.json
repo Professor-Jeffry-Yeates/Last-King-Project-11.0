@@ -1,0 +1,38 @@
+{
+    "Timers": [
+        {"id":"torchCheck","repeat":60,"function":"torchCheck"}
+    ],
+    "Music": [
+        {"Name":"Dungeon","Resource":"TipToe_46"},
+        {"Name":"Danger","Resource":"Horror_41"},
+        {"Name":"Sadness","Resource":"Doom_Full"},
+        {"Name":"Revolution","Resource":"Adventure_1"},
+        {"Name":"Prairie_breeze","Resource":"Prairie_Breeze"},
+        {"Name":"Market","Resource":"Market"},
+        {"Name":"Desolate_wind","Resource":"Desolate_Wind"},
+        {"Name":"Fantasy_wind","Resource":"Fantasy_Wind"}
+    ],
+    "Sounds": [
+        {"Name":"Claxon","Resource":"Claxon_01"},
+        {"Name":"Spider", "Resource":"Spider_01", "Random":[30,90]},
+        {"Name":"Coin", "Resource":"Coin_drop"},
+        {"Name":"Scream","Resource":"Scream_01"},
+        {"Name":"Laugh", "Resource":"Laugh_05"}
+    ],
+    "Soundtracks": [
+      {
+        "Theme": "Last King",
+        "Music": "Theme_01(Dungeon),Theme_02(Revolution),Theme_03(Sadness),Theme_04(Danger)",
+        "Sounds": "Drip_01(Drip),Bubbles_10(Draining),Rumble_01(Snore),Chain_02(Chains)",
+        "Random": "Rous_skitter_18(30-60),Laugh_05(100-400)"
+      },
+      {
+        "Theme": "Quest",
+        "Music": "Theme_01(Prairie_breeze),Theme_02(Market),Theme_03(Desolate_wind),Theme_04(Fantasy_wind)",
+        "Sounds": "Last_King_Door(Door)"
+      }
+    ],
+    "NPCs": [
+        {}
+    ]
+}

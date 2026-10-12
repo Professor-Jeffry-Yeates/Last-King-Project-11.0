@@ -1,0 +1,17 @@
+{
+    "Title": "Like a Tornado?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Loops",
+    "Imports": "math",
+    "PostReGex":['.*for.*a.*in.*shoppingList','.*return.*x'],
+    "Parameters":[2],
+    "Return":"cherry",
+    "Variables":["temp","shoppingList","item"],
+    "Instructions": "~For~ loops run a set number of iterations. Use the in keyword to loop for each fruit in the shopping list. ~item~ can be used as a variable."
+}
+def myFunction(a):
+    shoppingList = ["apple", "banana", "cherry"]
+    for a in shoppingList:
+      x = a
+    return x

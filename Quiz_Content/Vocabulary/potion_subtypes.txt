@@ -1,0 +1,8 @@
+Small Red
+Small Blue
+Small Green
+Small Yellow
+Small Purple
+Small Black
+Small White
+Small Colorless

@@ -1,0 +1,20 @@
+{
+    "Title": "Capital Idea!",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Strings",
+    "PostReGex":['.*capitalize()','.*strip()','.*return.*answer'],
+    "Variables":["temp","listing","answer","range","len"],
+    "Parameters":["Twas brillig and the slithly toves"],
+    "Return":"Twas Brillig And The Slithly Toves",
+    "Instructions": "Return the variable, ~answer~, with the following done in order to parameter ~a~; strip off excess white space, split words on a space and split into a list, capitalize all first letters, then combine the words back into a sentence. The variable answer should be used. "
+}
+def myFunction(a):
+    answer = a.strip()
+    listing = answer.split(' ')
+    answer = ""
+    for x in range(len(listing)):
+        listing[x] =listing[x].capitalize()
+        answer+=listing[x]+ " "
+    answer = answer.strip()
+    return answer

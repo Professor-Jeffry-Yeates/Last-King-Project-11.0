@@ -1,0 +1,381 @@
+{
+"Questions": [       
+    {
+     "Name": "Match Multiplication",
+     "Title": "What is Multiplication",
+     "Type": "Multiple Choice",
+     "Reward": "Copper",
+     "Text": "What is the symbol for Multiplication?",
+     "Options": ["*", "-", "+", "/"]
+   }
+   ,{
+     "Name": "Match Addition",
+     "Title": "Adding it All Together",
+     "Type": "Multiple Choice",
+     "Reward": "Copper",
+     "Text": "What is the symbol for Addition?",
+     "Options": ["+", "-", "*", "/"]
+   }
+   ,{
+     "Name": "Match Subtraction",
+     "Title": "Can we Have Less of That Please",
+     "Type": "Multiple Choice",
+     "Reward": "Copper",
+     "Text": "What is the symbol for Subtraction?",
+     "Options": ["-", "+", "*", "/"]
+   }
+   ,{
+     "Name": "Match Division",
+     "Title": "Divide the Opposition",
+     "Type": "Multiple Choice",
+     "Reward": "Copper",
+     "Text": "What is the symbol for Division?",
+     "Options": ["/", "-", "+", "*"]
+   }
+   ,{
+     "Name": "Variable Assignment",
+     "Title": "Balancing Act",
+     "Type": "True False",
+     "Reward": "Copper",
+     "Text": "Use a single equal sign to save values into a variable - this is an assignment statement."
+   }
+   ,{
+     "Name": "Interactive Mode",
+     "Title": "Interactive Mode",
+     "Type": "True False",
+     "Reward": "Copper",
+     "Text": "In interactive mode you write Python commands within Python itself and execute the commands one at a time, while in script mode you write a series of commands and execute the file they are in using Python."
+   }
+   ,{
+     "Name": "Integer Division",
+     "Title": "Divide and Conquer",
+     "Type": "Multiple Choice",
+     "Reward": "Silver",
+     "Text": "What is the symbol for Division?",
+     "Options": ["/", "//", "[]", "\\\\"]
+   }
+   ,{
+     "Name":  "Modulus Division",
+     "Type":  "Multiple Choice",
+     "Title": "Do you Need an Operation?",
+     "Reward":  "Gold",
+     "Penalty": "Copper",
+     "Text":    "Which operator returns just the integer remainder of a division operation (also called a modula or modulus)? NOTE: Failure loses a coin!",
+     "Options": ["%", "%%", "\\\\", "/"]
+   }
+   ,{
+     "Name":    "Python Keyword I",
+     "Type":    "Multiple Choice",
+     "Title":   "What did you say?",
+     "Reward":  "Copper",
+     "Text":    "To input text and numbers onto the screen, use which Python keyword (this is actually a function but use the name reserved as a function ):",
+     "Options": ["input()","print()","display()","main()","exit()","def"]
+   }
+   ,{
+     "Name":    "Python Keyword II",
+     "Type":    "Multiple Choice",
+     "Title":   "What Would a Reporter do?",
+     "Reward":  "Copper",
+     "Text":    "To display text and numbers onto the screen, use which Python keyword (this is actually a function but use the name reserved as a function ):",
+     "Options": ["print()","input()","display()","main()","exit()","def"]
+   }
+   ,{
+     "Name":    "Print Result",
+     "Title":   "What Were you Thinking?",
+     "Type":    "Multiple Choice",
+     "Reward": "Silver",
+     "Text":    "What will be the result of the following Python command given that name = 'Bob' and age = 55?     print('Hello',name+age)",
+     "Options": ["An error and nothing will be printed","Hello Bob 55","Hello","Hello Bob"]
+   }
+   ,{
+     "Name":  "Print Result",
+     "Title": "Hi Bob!",
+     "Type":  "Multiple Choice",
+     "Reward": "Silver",
+     "Text":   "What will be the result of the following Python command given that name = '55' and age = Bob?    print('Hello',name,': age',3+name, sep=', ')",
+     "Options": ["Hello, 55, : age, 58","Hello, Bob: age, 58","An error will occur","Hello 55: age 58"]
+   }
+   ,{
+     "Name":    "Print Result",
+     "Title":   "How old is Bob?",
+     "Type":    "Multiple Choice",
+     "Reward":  "Silver",
+     "Text":    "What will be the result of the following Python command given that name = 'Bob' and age = 55?    print(f'Hello {name}: age {(3+age/5):.3f}')  ",
+     "Options": ["Hello Bob: age 14.000","An error will occur","Hello {name}: age {(3+age/5):.3f}","Hello Bob: 14.0"]
+   }
+   ,{
+     "Name":    "Print Result",
+     "Title":   "Secret Agent Man",
+     "Type":    "Multiple Choice",
+     "Reward":  "Silver",
+     "Text":    "What will be the result of the following Python command given that name = 'Bob' and age = 55?    print(f'Hello {name}: age ',f'{(3+age/5):.2f}') ",
+     "Options": ["Hello Bob: age 14.00","An error will occur","Hello Bob: age 14.000","Hello Bob: 14"]
+   }
+   ,{
+     "Name":    "Print Result",
+     "Title":   "Know the Material, Period!",
+     "Type":    "Multiple Choice",
+     "Reward":  "Silver",
+     "Text":    "What will be the result of the following Python command given that name = 'Bob' and age = 55?    print(f'Hello {name}: age ','{(3+age/5):.2f}') ",
+     "Options": ["Hello Bob: age  {(3+age/5):.2f}","An error will occur","Hello Bob: age 14.000","Hello Bob: 14"]
+   }
+   ,{
+     "Name":    "Separation Anxiety",
+     "Title":   "Separation Anxiety",
+     "Type":    "True False",
+     "Reward":  "Copper",
+     "Text":    "A named argument used in the print function is 'sep' which defines the separator used for items separated by a comma. Normally it is a single space."
+   }
+   ,{
+     "Name":    "Interactive Mode",
+     "Title":   "Extrovert or Introvert?",
+     "Type":    "True False",
+     "Reward":  "Silver",
+     "Text":    "Python can run in interactive or script mode. Interactive is typed line by line while script mode is like a standard program."
+   }
+   ,{
+     "Name":    "Good Ending",
+     "Title":   "How Will This end?",
+     "Type":    "True False",
+     "Reward":  "Silver",
+     "Text":    "A named argument used in the print function is 'end' which defines the character(s) placed at the end of the printing. Normally it is a new line."
+   }
+   ,{
+     "Name":    "Not all are Equal",
+     "Title":   "Your Assignment, Should you Accept it...",
+     "Type":    "True False",
+     "Reward":  "Copper",
+     "Text":    "Use a double equal sign to save values into a variable - this is an assignment statement.",
+     "Answer":  "False"
+   }
+   ,{
+     "Name":    "All were Created Equal",
+     "Title":   "All were Created Equal",
+     "Type":    "True False",
+     "Reward":  "Copper",
+     "Text":    "Compare the values of two things using a double equal sign."
+   }
+   ,{
+     "Name":    "All were Created Equal",
+     "Title":   "What is the meaning of 'is'?",
+     "Type":    "True False",
+     "Reward":  "Copper",
+     "Text":    "To check if a variable is the same as another, use the 'is' keyword.  This is not equality but the same variable in memory"
+   }
+   ,{
+     "Name":    "Triple the Fun",
+     "Title":   "Triple the Fun",
+     "Type":    "True False",
+     "Reward":  "Copper",
+     "Text":    "A pair of triple quotes (either single or double quotes) contains a multi-line string formatted just as it is written. It can be assigned to a variable or without an assignment it acts as a multi-line comment."
+   }
+   ,{
+     "Name":    "Decimal Division",
+     "Title":   "Now for a Change",
+     "Type":    "Multiple Choice",
+     "Reward":  "Copper",
+     "Text":    "Taking the value in one variable and changing it to a different data type (within certain rules) is called:",
+     "Options": ["casting","magic","impossible","equality","blind luck"]
+   }
+   ,{
+     "Name":    "Decimal Division",
+     "Title":   "Decimal Division",
+     "Type":    "Multiple Choice",
+     "Reward":  "Copper",
+     "Text":    "Which operation returns just the integer portion of a division operation but works for a decimal number?",
+     "Options": ["//","/","[]","\\\\"]
+   }
+   ,{
+     "Name":    "Would you like to comment on that?",
+     "Title":   "Would you like to comment on that?",
+     "Type":    "Multiple Choice",
+     "Reward":  "Copper",
+     "Text":    "Which single character makes everything on the line following it (including the character) a comment?",
+     "Options": ["#","##","//","/*","-"]
+   }
+   ,{
+     "Name":   "More Data Types",
+     "Title":  "How Would you Print that?",
+     "Type":   "Multiple Select",
+     "Reward": "Silver",
+     "Text": "A print statement can print any number of data-types when they are separated by commas as well as end each printed line with special characters. Which of these are valid example of a print statement:",
+     "Options": [ "print('Hello World')", 
+                  "print('The number' + ' is ' + 5.678 )",
+                  "print('Fred','Barb','Stan','Jill', sep=', ')",
+                  "print('-'*30, end='-' )"],
+     "Answer": [1,3,4]
+   }
+   ,{
+     "Name":   "Variable Name Truths",
+     "Title":  "And the Truth is ...?",
+     "Type":   "Multiple Select",
+     "Reward": "Silver",
+     "Text": "Which of these are true for variable names:",
+     "Options": [ "Names can be very long", 
+                 "They can contain letters and number", 
+                 "They can begin with lower case letters, upper case letters, underscores, or numbers",
+                 "Double underscore variable names are reserved for class variables",
+                 "Variables beginning with single underscores are private to a class, but that is not enforced so you can still use them" ],
+     "Answer": [1,2,4,5]
+   }
+   ,{
+     "Name":   "Casting or Converting",
+     "Title":  "Convert Carefully?",
+     "Type":   "Multiple Select",
+     "Reward": "Silver",
+     "Text": "Python can convert (or cast) a variable holding one type of value into a different kind of value. Which of these statements are correct?",
+     "Options": [ "answer = int(5.5)')", 
+                  "answer = float('56,999.99').')",
+                  "answer = str(5.5 + 'A')",
+                  "answer = bool('Good evening, campers!')",
+                  "answer = int('57.9')",
+                  "answer = float(10*(7/22)+1)"
+                ],
+     "Answer": [4,5,6]
+   }
+   ,{
+     "Name":   "Multiple Printing Parameters",
+     "Title":  "Never mix Gold, Midshipmen, and Swords",
+     "Type":   "Multiple Select",
+     "Reward": "Gold",
+     "Text": "You can display multiple numbers, variable values, and text onto the screen using the print () command. Which of these lines of code will work error free and have proper spacing between words (assume the 'number' variable is a float number of 5 and 'string' is a string variable)?",
+     "Options": [ "print('Arg, midshipman', string, 'has', number, 'swords me 'earties.')", 
+                  "print('Arg, midshipman '+ string + ' has ' + number + ' swords me 'earties.')",
+                  "print('Arg,',' midshipman '+ string, 'has ', int(number),'swords me '+' eartless earties.')",
+                  "print(f'Arg, midshipman {string:.0f} has {number} swords me 'earties.')" ],
+     "Answer": [3]
+   }
+   ,{
+     "Name":   "Printing Multiple Types",
+     "Title":  "Is that fit to Print?",
+     "Type":   "Multiple Select",
+     "Reward": "Silver",
+     "Text": "A print statement can print any number of data-types when they are separated by commas as well as end each printed line with special characters. Which of these are valid examples of a print statement:",
+     "Options": [ "print('Hello World')", 
+                  "print('The number' + ' is ' + 5.678 )",
+                  "print('Hello','Cruel',World')",
+                  "print('-'*30, end='-' )"],
+     "Answer": [1,3,4]
+   }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_01.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_02.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_04.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_12.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_13.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_14.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_15.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_16.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_17.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_18.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_19.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_20.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_21.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_22.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_23.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_24.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_25.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_26.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_27.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_28.txt",
+    "Reward":"Gold"
+  }
+  ]
+}

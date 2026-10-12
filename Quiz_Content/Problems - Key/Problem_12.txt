@@ -1,0 +1,17 @@
+{
+    "Title": "Like a Ferris Wheel?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Loops",
+    "Imports": "math",
+    "PostReGex":['.* x .*=','.* return.*x'],
+    "Parameters":[5],
+    "Return":5,
+    "Variables":["temp"],
+    "Instructions": "Loop until ~x~ is larger that the parameter, ~a~. Then return ~x~."
+}
+def myFunction(a):
+    x = 0
+    while x < a:
+        x += 1
+    return x

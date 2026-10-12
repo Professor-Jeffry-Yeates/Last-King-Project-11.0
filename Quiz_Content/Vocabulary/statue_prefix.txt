@@ -1,0 +1,4 @@
+stone
+bronze
+wooden
+glass

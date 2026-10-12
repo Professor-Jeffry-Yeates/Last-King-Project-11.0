@@ -1,0 +1,10 @@
+woman
+man
+lady
+gent
+girl
+boy
+female
+male
+prince
+princess

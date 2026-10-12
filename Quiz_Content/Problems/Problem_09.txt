@@ -1,0 +1,22 @@
+{
+    "Title": "How tall am I?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Files",
+    "Imports": "pathlib,os",
+    "PostReGex":['.* = pathlib.Path','.* with open','^(?!.*\b11\b).*'],
+    "Required":["with","as","os"],
+    "Variables":["open","name","file","count"],
+    "Return":11,
+    "Instructions":"Use pathlib.Path() to open (using with) file, ~Buffalo.chips~, for reading, then count its lines. Return this ~count~ variable. The variables ~count~, ~name~, and ~file~ are also available for you to use. os The library has been imported as well."
+}
+def myFunction():
+    name = "Buffalo.chips"
+    file = pathlib.Path( os.getcwd(), "Problems", name )
+    count = 0
+    with open( file  , "r") as y:
+        while True:
+            x = y.readline()
+            if not x: break
+            count += 1    
+    return count

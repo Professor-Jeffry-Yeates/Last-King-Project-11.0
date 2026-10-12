@@ -1,0 +1,16 @@
+{
+    "Title": "It was Bleached to Zero or White!",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Lambda",
+    "Required": ["lambda"],
+    "PostReGex":['.*return.*answer'],
+    "Variables":["temp",'answer','bleach','type','str','int'],
+    "Parameters":[5.5],
+    "Return":5.5
+    "Instructions": "Again, write a lambda named ~bleach~ which when given the parameter a, returns 0 if it is an integer or the word ~white~ if its a string, otherwise it returns the parameter. Set the variable ~answer~ to that result."
+}
+def myFunction(a):
+    bleach = lambda a : 0 if type(a) == int else 'white' if type(a) == str else a
+    answer = bleach(a)
+    return answer

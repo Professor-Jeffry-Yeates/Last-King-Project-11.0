@@ -1,0 +1,14 @@
+scroll
+chest
+book
+tapestry
+carpet
+engraving
+lamp
+potion
+portrait
+statue
+tablet
+parchment
+drawing
+map

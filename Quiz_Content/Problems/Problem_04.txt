@@ -1,0 +1,17 @@
+{
+    "Title": "What are the Unsafe Possibilities?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Math",
+    "Imports": "math, random, datetime",
+    "Required":["answer","#"],
+    "PostReGex":['.* answer .*=','.* return .*answer"],
+    "Parameters":[5000,99],
+    "Variables":"answer",
+    "Return":"5",
+    "UnsafeCode":true,
+    "Instructions": "Set the unsafe variable, ~answer~, equal to the provided sum function (near line 6) and return it."
+}
+# correct the code, delete this comment, then press SUBMIT
+answer = 5
+print(answer)

@@ -1,0 +1,23 @@
+{
+    "Title": "Can I Have Some More?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Files",
+    "Imports": "pathlib,os",
+    "PostReGex":['.* = pathlib.Path','.*return line'],
+    "Required":["with","as","os","open"],
+    "Variables":["open","name","folder","line","path","writer","reader","cwd"],
+    "Return":"yeah",
+    "Instructions":"Use pathlib.Path() to make the path to file, ~Corn.chips~, in the ~Problems~ folder. Append that file with the word ~yeah~. Close the file and then read it back in. Return the last line read in. The variables ~name~, ~folder~, ~line~, ~path~, ~writer~, ~cwd~, and ~reader~ are also available for you to use. The os library has been imported."
+}
+def myFunction():
+    name = "Corn.chips"
+    folder = "Problems"
+    cwd = os.getcwd()
+    path = pathlib.Path( cwd, folder, name )
+    with open( path, "a") as writer:
+        writer.write("yeah\n")
+    with open( path, "r") as reader:
+        line = reader.read().split()
+        line = line[-1]
+    return line

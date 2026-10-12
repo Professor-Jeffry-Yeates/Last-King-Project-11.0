@@ -1,0 +1,6 @@
+brass
+stone
+bronze
+copper
+clay
+wood

@@ -1,0 +1,22 @@
+{
+    "Title": "What are the Possibilities?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Math",
+    "PostReGex":['.* answer .*=','.* return .*answer"],
+    "Required":["answer"],
+    "Variables": ["answer"],
+    "Parameters":[5000,99],
+    "Return":15,
+    "Instructions": "Set the variable called ~answer~ equal to the provided sum function (near line 6) and return it."
+}
+def myFunction(a,b):
+    z = math.sqrt(7000)
+    z = int(3) + float(a + z) 
+    x = max(7,min(2,9000 + b))
+    y = ((b * x**3)/(x-b))/a
+    answer = sum([1,2,3,4,5])
+    c = True
+    c = "abcdefg"
+    b = c[2:-1]
+    return answer

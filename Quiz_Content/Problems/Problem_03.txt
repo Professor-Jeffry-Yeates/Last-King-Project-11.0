@@ -1,0 +1,19 @@
+{
+    "Title": "Get the Current Working Directory",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Files",
+    "Imports": "pathlib,os",
+    "Required":["os"],
+    "PostReGex":['.* = pathlib.Path','.*return listing'],
+    "Variables":["name","folder","listing","path","currentWorkingDirectory"],
+    "Return":"Problems",
+    "Instructions":"Use pathlib.Path() to make the path to the file, ~Buffalo.chips~. It is in the ~Problems~ folder in your current working directory. The code will return part of a list of the path you created. The variables ~path~, ~listing~, ~name~, and ~folder~ are also available for you to use. The os library has been imported as well."
+}
+def myFunction():
+    name = "Buffalo.chips"
+    folder = "Problems"
+    currentWorkingDirectory = os.getcwd()
+    path = pathlib.Path( currentWorkingDirectory, folder, name )
+    listing = path.parts
+    return listing[-2]

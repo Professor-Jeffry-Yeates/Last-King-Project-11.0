@@ -1,0 +1,53 @@
+{
+    "Map Name": "CCUland",
+    "Theme":"Quest",
+    "Splash Location":"Center",
+    "Target Location":[422, 1278],
+    "Frame Label": "Instructions",
+    "Content Path": "{0}Content{0}",
+    "Map": "{0}_map.png",
+    "Map Path": "{0}_path.png",
+    "Quest":  "You are the green dot in your cabin at the edge of the \"Half-way There Woodland Grove\". Move about the map and open up treasure chests to claim your coins. But beware, you will have to answer questions to earn your discovery and there are ways to spend or lose your coins. The better the coin - the harder the question. Use the arrow keys or mouse to move.  There is a compass pointing to your destination. Earn {0} of each coin to complete this quest.  There are some weapons and items to find, but they are not needed to complete the quest.  The quest is to solve puzzles and find the treasure by answering the questions.",
+    "Objects": [
+        { "Name":"City", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645], "Action":"Threshold(Inside-City)"},                                
+        { "Name":"Plain", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645], "Action":"Threshold(Inside-Plain)"},                               
+        { "Name":"Mountain", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645],  "Action":"Threshold(Inside-Mountain)"},                          
+        { "Name":"Jungle", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645],  "Action":"Threshold(Inside-Jungle)"},                          
+        { "Name":"Forest", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645],  "Action":"Threshold(Inside-Forest)"},                          
+        { "Name":"Sea", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645],  "Action":"Threshold(Inside-Sea)"},                      
+        { "Name":"Desolation", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645],  "Action":"Threshold(Inside-Desolation)"},                       
+        { "Name":"Volcano", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645],  "Action":"Threshold(Inside-Volcano)"},                      
+        { "Name":"Town", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645],  "Action":"Threshold(Inside-Town)"},                      
+        { "Name":"Farm", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645],  "Action":"Threshold(Inside-Farm)"},                      
+        { "Name":"River", "Purpose":"invisible", "Polygon":[563,645, 582,617, 626,556, 711,486, 773,412, 797,382, 854,361, 902,379, 974,403, 
+                                            974,416, 854,374, 797,395, 773,425, 711,499, 626,569, 582,630, 576,645],  "Action":"Threshold(Inside-River)"}
+    ],
+    "Treasure": [
+    ],
+    "Timers": [
+    ],
+    "Music": [
+    ],
+    "Sounds": [
+    ],
+    "Soundtracks": [
+      {
+        "Theme": "Quest",
+        "Music": "Theme_01(Prairie_breeze),Theme_02(Market),Theme_03(Desolate_wind),Theme_04(Fantasy_wind)",
+        "Sounds": "Door(Last_King_Door)"
+      }
+    ],
+    "NPCs": [
+        {}
+    ]
+}

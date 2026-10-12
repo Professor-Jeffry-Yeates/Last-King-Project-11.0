@@ -1,0 +1,21 @@
+{
+    "Title": "In With the New",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Files",
+    "Imports": "pathlib,os",
+    "PostReGex":['.* = pathlib.Path','.*return exists'],
+    "Required":["with","as","os"],
+    "Variables":["open","name","folder","line","path","writer","cwd","exists"],
+    "Return":True,
+    "Instructions":"Use pathlib.Path() to make the path to the file, ~Corn.chips~, in the ~Problems~ folder. Create that file with the content of ~snack~. Close it then check if it exists. Return the ~exists~ variable. The variables ~name~, ~folder~, ~line~, ~path~, ~writer~, ~cwd~, and ~exists~ are also available for you to use. The os library has been imported as well."
+}
+def myFunction():
+    name = 'Corn.chips'
+    folder = "Problems"
+    cwd = os.getcwd()
+    path = pathlib.Path( cwd, folder, name )
+    with open( path, "w") as writer:
+        writer.write("snack\n")
+    exists = os.path.exists(path)
+    return exists

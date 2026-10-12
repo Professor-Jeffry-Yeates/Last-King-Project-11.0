@@ -1,0 +1,24 @@
+{
+    "Title": "Weighty Subjects!",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Decisions",
+    "PostReGex":['.*c.*[<][^=>]','.*return.*answer'],
+    "Variables":["temp",'answer','response','category'],
+    "Parameters":[24],
+    "Return":"And you fall into the normal weight category",
+    "Instructions": "Use if, elif, and else to decide the weight category using parameter ~c~, but only use the less-than operator. Return the result using the variable ~answer~"
+}
+def myFunction(c):
+    response = "And you fall into the {} category"
+    category = ""
+    if c < 18.5:
+        category = "underweight"
+    elif c < 25:
+        category = "normal weight"
+    elif c < 30:
+        category = "overweight"
+    else:
+        category = "obese"
+    answer = response.format(category)
+    return answer

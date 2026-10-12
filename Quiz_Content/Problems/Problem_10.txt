@@ -1,0 +1,27 @@
+{
+    "Title": "When Failure is Success",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Files",
+    "Imports": "pathlib,os",
+    "PostReGex":['.* = pathlib.Path','.* with open','with\s+open\(\s*(\S+)\s*,\s*["\']x["\']\s*\)\s+as\s+(\S+):'],
+    "Required":["with","as","os"],
+    "Variables":["open","name","file","path","answer"],
+    "Return":"Failure",
+    "Instructions":"Using what you have practiced, open the file, ~Potato.chips~, for special write-access, write something, then close it. Try writing to it again the same way, but catch the error. The variables ~open~, ~name~, ~path~, and ~file~ are also available for you to use. The os library has been imported as well."
+}
+def myFunction():
+    answer = 'Success'
+    path = pathlib.Path( os.getcwd(), "Problems", "Potato.chips" )
+    try:
+        with open(path, "x") as file:
+            file.write("??????????????")
+    except:
+        answer = 'Failure'
+    else:
+        try:
+            with open(path, "x") as file:
+                file.write("????????????")
+        except:
+            answer = 'Failure'
+    return answer

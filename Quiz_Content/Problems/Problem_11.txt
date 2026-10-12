@@ -1,0 +1,25 @@
+{
+    "Title": "Life is but a Dream",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Files",
+    "Imports": "pathlib,os",
+    "PostReGex":['.* = pathlib.Path','.* os.remove','os.path.exists'],
+    "Required":["remove","os"],
+    "Variables":["name","path","answer","print","writer"],
+    "Return":false,
+    "UnsafeCode":true,
+    "Instructions":"Using what you have practiced, delete the file, ~Silicon.chips~. Check and return the boolean of its existence. The variables ~open~, ~name~, ~path~, and ~file~ are also available for you to use. The os library has been imported as well."
+}
+def myFunction():
+    name = "Silicon.chips"
+    path = pathlib.Path( os.getcwd(), "Problems", name )
+    try:
+        os.remove(path)
+    except:
+        pass
+    answer = os.path.exists(path)
+    print(answer)
+    with open(path, 'w') as writer:
+        writer.write("File recreated.")
+myFunction()

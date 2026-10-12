@@ -1,0 +1,14 @@
+{
+    "Title": "Is it Under Warentee?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Strings",
+    "PostReGex":['.*replace.*replace.*replace.*return.*answer'],
+    "Variables":["temp",""answer"],
+    "Parameters":["Did gyre and gimble on the wabe"],
+    "Return":"Did_Glyre_ynd_Glimble_on_the_wybe",
+    "Instructions": "The replace function replaces the first text with the second, as in name.replace(~F~,~f~). Since this returns a string, we can link multiple replaces with a '.', so return the variable, ~answer~, with the following done to it; Replace all ~a~ with ~y~, all spaces with underscores and capital ~J~ with ~J~. "
+}
+def myFunction(a):
+    answer = a.replace('a','y').replace(' ','_').replace('g','Gl')
+    return answer

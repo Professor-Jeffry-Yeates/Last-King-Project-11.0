@@ -1,0 +1,14 @@
+{
+    "Title": "Upper class Question!",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Strings",
+    "PostReGex":['.*upper()','.*strip()','.*return.*answer'],
+    "Variables":["temp","count","number","answer"],
+    "Parameters":["abcdefg  "],
+    "Return":"ABCDE",
+    "Instructions": "Return the variable, ~answer~, with the first 5 letters of the text in parameter ~a~, in upper case and with no extra spaces.  The variable ~answer~ should be used. "
+}
+def myFunction(a):
+    answer = a[:5].upper().strip()
+    return answer

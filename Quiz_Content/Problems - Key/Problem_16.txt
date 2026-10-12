@@ -1,0 +1,18 @@
+{
+    "Title": "Like a Race Track?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Loops",
+    "Imports": "math",
+    "PostReGex":['.*for.*y.*in.*range','.*count.*=.*a','.*return.*x'],
+    "Parameters":[7],
+    "Return":49,
+    "Variables":["temp","count","range"],
+    "Instructions": "For loops run a set number of iterations. Loop using the ~range()~ function, looping ~count~ number of times. ~count~ can be used as a variable."
+}
+def myFunction(a):
+    count = a
+    x = 0
+    for y in range(count):
+      x += a
+    return x

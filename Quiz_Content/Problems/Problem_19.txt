@@ -1,0 +1,17 @@
+{
+    "Title": "Like Running on a Track?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Loops",
+    "Imports": "math",
+    "PostReGex":['.*for.*count.*in.*range','.*return.*x'],
+    "Parameters":[2,13],
+    "Variables":["temp","count","range"],
+    "Return":26,
+    "Instructions": "~For~ loops can run from a starting number to an ending number function stepping more than the default of 1. Loop from ~a~ to ~b~ stepping by 3 using range() and the ~count~ variable.  ~count~ can be used as a variable."
+}
+def myFunction(a,b):
+    x = 0
+    for count in range(a, b, 3):
+        x += count
+    return x

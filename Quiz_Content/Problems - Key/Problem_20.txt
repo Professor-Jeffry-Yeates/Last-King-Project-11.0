@@ -1,0 +1,19 @@
+{
+    "Title": "Like Running on a Treademill?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Loops",
+    "Imports": "math",
+    "PostReGex":['.*for.*_.*in.*range','.*return.*number'],
+    "Required":["as"]
+    "Variables":["temp","count","number","range","pass","_"],
+    "Parameters":[2,13],
+    "Return":26,
+    "Instructions": "~For~ loops can run within other loops. A variable can be ignored using an ~_~ (underscore). Return the total ~number~ of times the these loops using x & y looped (there are several ways).  The variables ~count~ and ~number~ can be used."
+}
+def myFunction(a,b):
+    for _ in range(a):
+        for _ in range(b):
+            pass
+    number = a * b
+    return number

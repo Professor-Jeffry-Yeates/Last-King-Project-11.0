@@ -1,0 +1,14 @@
+{
+    "Title": "Can we reverse the verdict?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Strings",
+    "PostReGex":['.*a[[]::-1[]]','.*return.*answer'],
+    "Variables":["temp","count","number","answer"],
+    "Parameters":["abcdefg"],
+    "Return":"gfedcba,
+    "Instructions": "Return the variable, ~answer~, with the text in parameter, a, reversed (but no looping).  The variable answer should be used. "
+}
+def myFunction(a):
+    answer = a[::-1]
+    return answer

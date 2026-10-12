@@ -1,0 +1,16 @@
+{
+    "Title": "Like Rabbits?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Math",
+    "Imports": "math",
+    "Required":["*"],
+    "Parameters":[5,2],
+    "Return":-216,
+    "Instructions": "Using the provided calculations of a, b, and c; multiply x and y and z, then return that product"
+}
+def myFunction(a,b):
+    x = a - b
+    y =- b - b - b
+    z = b + a + a
+    return x * y * z

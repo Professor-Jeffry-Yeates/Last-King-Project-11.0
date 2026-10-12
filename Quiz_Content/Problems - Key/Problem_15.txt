@@ -1,0 +1,19 @@
+{
+    "Title": "Like Vertigo?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Loops",
+    "Imports": "math",
+    "PostReGex":['.*while.*y.*[<].*a','.*return.*x'],
+    "Parameters":[9],
+    "Return":100,
+    "Variables":["temp"],
+    "Instructions": "With the ~else~ statement we can run a block of code once when the condition no longer is true. Loop while y < a."
+}
+def myFunction(a):
+    y = 1
+    while y < a:
+      y += 1
+    else:
+      x = 100
+    return x

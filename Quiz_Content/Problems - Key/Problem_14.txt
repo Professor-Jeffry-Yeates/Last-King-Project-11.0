@@ -1,0 +1,18 @@
+{
+    "Title": "Like a Wobbily Wheel?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Loops",
+    "Imports": "math",
+    "PostReGex":['.*if.*a.*==.*3,'.*return.*x'],
+    "Parameters":[5],
+    "Return":5,
+    "Variables":["temp"],
+    "Instructions": "With the ~continue~ statement we can stop the current iteration, and continue with the next. Continue in order to skip a = 3."
+}
+def myFunction(a):
+    x = 0
+    while x < a:
+        if a == 3: continue
+        x += 1
+    return x

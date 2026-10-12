@@ -1,0 +1,20 @@
+{
+    "Title": "When the Chips are Down ...",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Files",
+    "Imports": "pathlib,os",
+    "PostReGex":['.* = pathlib.Path','.*return line'],
+    "Required":["with","as","os"],
+    "Variables":["open","name","folder","line","path","reader","cwd"],
+    "Return":"1",
+    "Instructions":"Use pathlib.Path() to make the path to the file, ~Buffalo.chips~. Open that file and return just the first line. The variables ~path~, ~line~, ~name~, and ~folder~ are also available for you to use. The os library has been imported as well."
+}
+def myFunction():
+    name = 'Buffalo.chips'
+    folder = "Problems"
+    cwd = os.getcwd()
+    path = pathlib.Path( cwd, folder, name )
+    with open( path, "r") as reader:
+        line = reader.readline().strip()
+    return line

@@ -1,0 +1,18 @@
+{
+    "Title": "Get the Current Working Directory",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Files",
+    "Imports": "pathlib,os",
+    "PostReGex":['.* = pathlib.Path','.* os.path.exists','.*return exists'],
+    "Required":["os"],
+    "Variables":["name","file","exists","currentWorkingDirectory"],
+    "Return":true,
+    "Instructions":"Use pathlib.Path() and os.path.exists() to check if file, ~Buffalo.chips~, exists. Return the variable, ~exists~. The variables ~exists~, ~name~, ~currentWorkingDirectory~, and ~file~ are also available for you to use. The os library has been imported as well."
+}
+def myFunction():
+    name = "Buffalo.chips"
+    currentWorkingDirectory = os.getcwd()
+    file = pathlib.Path( currentWorkingDirectory, "Problems", name )
+    exists = os.path.exists(file)
+    return exists

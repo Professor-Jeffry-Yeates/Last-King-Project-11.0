@@ -1,0 +1,16 @@
+{
+    "Title": "Mary had a Little Lambda!",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Lambda",
+    "Required": ["lambda"],
+    "PostReGex":['.*return.*answer'],
+    "Variables":["temp",'answer','addie'],
+    "Parameters":[5,7],
+    "Return":12,
+    "Instructions": "For a lambda, provide the lambda name = ~lambda~ followed by parameter(s) then a colon, then the code using those parameters. The single result is automatically returned. Example;  bob = lambda a,b ~colon~ a + b    returns a + b, so to use your code;  bob(5,7) will return 12 and bob(~one~,~_Two~) returns ~one_two~.  Write a lambda named ~addie~ which when given the parameters a and b, returns a + b. Set the variable ~answer~ to that result."
+}
+def myFunction(x,y):
+    addie = lambda a,b : a + b
+    answer = addie(x,y)
+    return answer

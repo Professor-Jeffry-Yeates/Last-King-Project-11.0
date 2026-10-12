@@ -1,0 +1,113 @@
+{
+    "Places": [
+         { "Map":[753, 729], "Use":"SecretDoor-Kitchen"}
+        ,{ "Map":[ 86, 294], "Use":"SecretDoor-A"}
+        ,{ "Map":[ 80, 123], "Use":"SecretDoor-B"}
+        ,{ "Map":[309, 101], "Use":"SecretDoor-C"}
+        ,{ "Map":[564,  92], "Use":"SecretDoor-E"}
+        ,{ "Map":[810, 113], "Use":"SecretDoor-F"}
+        ,{ "Map":[887, 517], "Use":"DragonPlacement"}
+        ,{ "Map":[900, 359], "Use":"DragonTreasure"}
+        ,{ "Map":[898, 449], "Use":"Eyes of Dragon"}
+        ,{ "Map":[728, 624], "Room":"GoldCoin", "Use":"GoldCoin", "Description":"There are several gold pieces almost in reach past the end of the iron grate."}
+        ,{ "Map":[ 87, 753], "Use":"Weapon"}
+        ,{ "Map":[548, 763], "Use":"Weapon"}
+        ,{ "Map":[557, 763], "Use":"Weapon"}
+        ,{ "Map":[490, 382], "Use":"Weapon"}
+        ,{ "Map":[411, 256], "Use":"Weapon"}
+        ,{ "Map":[ 95, 143], "Use":"Weapon"}
+        ,{ "Map":[153, 760], "Use":"Weapon"}
+        ,{ "Map":[557, 725], "Use":"Weapon"}
+        ,{ "Map":[535, 460], "Use":"Weapon"}
+        ,{ "Map":[535, 475], "Use":"Weapon"}
+        ,{ "Map":[535, 490], "Use":"Weapon"}
+        ,{ "Map":[600, 515], "Use":"Weapon"}
+        ,{ "Map":[600, 535], "Use":"Weapon"}
+        ,{ "Map":[600, 545], "Use":"Weapon"}
+        ,{ "Map":[600, 555], "Use":"Weapon"}
+        ,{ "Map":[700, 575], "Use":"Weapon"}
+        ,{ "Map":[700, 605], "Use":"Weapon"}
+        ,{ "Map":[190, 305], "Use":"Web"}
+        ,{ "Map":[271, 293], "Use":"Web"}
+        ,{ "Map":[700, 251], "Use":"Web"}
+        ,{ "Map":[740, 318], "Use":"Web"}
+        ,{ "Map":[768, 132], "Use":"Web"}
+        ,{ "Map":[900, 115], "Use":"Web"}
+        ,{ "Map":[179, 764], "Use":"Web"}
+        ,{ "Map":[ 80, 160], "Use":"Web"}
+        ,{ "Map":[ 80,  84], "Use":"Web"}
+        ,{ "Map":[912, 331], "Use":"Treasure"}
+        ,{ "Map":[913, 393], "Use":"Treasure"}
+        ,{ "Map":[ 65, 341], "Use":"Treasure"}
+        ,{ "Map":[ 94, 341], "Use":"Treasure"}
+        ,{ "Map":[ 68,  61], "Use":"Treasure"}
+        ,{ "Map":[ 98,  61], "Use":"Treasure"}
+        ,{ "Map":[462, 398], "Use":"Treasure"}
+        ,{ "Map":[ 58, 143], "Use":"Treasure"}
+        ,{ "Map":[557, 725], "Use":"Treasure"}        
+        ,{ "Map":[287,  57], "Use":"Any"}
+        ,{ "Map":[551,  68], "Use":"Any"}
+        ,{ "Map":[575,  68], "Use":"Any"}
+        ,{ "Map":[309,  57], "Use":"Any"}
+        ,{ "Map":[822,  67], "Use":"Any"}
+        ,{ "Map":[200, 314], "Use":"Sleeping"}
+        ,{ "Map":[917, 114], "Room":"D1",  "Use":"Monster", "Description":"A closet of burned walls, furniture and fine clothing."}
+        ,{ "Map":[897, 181], "Room":"D2",  "Use":"Any", "Description":"Must have been the royal bed chamber, but now a charred ruin visited only by hungry vermin."}
+        ,{ "Map":[806,  75], "Room":"D3",  "Use":"Any", "Description":"The wall creaks loudly into the stone revealing a secret room unopened since the kingdom fell.", "Message":"What secrets are found amongst the dust and mold?"}
+        ,{ "Map":[841, 139], "Room":"D4",  "Use":"Monster", "Description":"This must be the entry hall to the royal chambers.  Watch out for those recently spun cobwebs!"}
+        ,{ "Map":[708, 133], "Room":"D5",  "Use":"Any", "Description":"Fire scarred hall with melted armor suits by the walls.  A charred iron bound door awaits on crushed hinges"}
+        ,{ "Map":[571, 503], "Room":"D6",  "Use":"Monster", "Description":"The back wall of the royal chamber is a mass of broken armor and crushed weapons. The clawed walls are a backdrop to a jumble of broken statues and crushed stone. Justice for a fallen king. All that he wanted from others now belongs to another.", "Message":"Can anything useful be left in this junkyard?"}
+        ,{ "Map":[710, 510], "Room":"D7",  "Use":"None", "Description":"There on the floor is a large gold coin almost within reach. Move a little closer and you can grab it!"}
+        ,{ "Map":[876, 377], "Room":"D8",  "Use":"None", "Description":"A large hall with ancient stone walls fades into darkness. There is a low rumble and a glow to the left."}
+        ,{ "Map":[825, 414], "Room":"D9",  "Use":"DragonDen", "Description":"Stairs carved from fine marble leading down into the shadows."}
+        ,{ "Map":[692, 232], "Room":"D10", "Use":"Any", "Description":"Most of the roof has caved in but there is a narrow, twisting path past the rubble, but where does it lead?."}
+        ,{ "Map":[652, 202], "Room":"D11", "Use":"Any", "Description":"A finely decorated but small alcove with a pedestal.  The statue on that was on it is long gone, crushed into a pile of dust at it's base."}
+        ,{ "Map":[616, 171], "Room":"D12", "Use":"Any", "Description":"A small cavern bitten and crewed into the living stone of the mountain. Was it something coming in or trying to get out?"}
+        ,{ "Map":[565,  62], "Room":"D13", "Use":"Any", "Description":"The wall crumbles to gravel revealing a secret room, perhaps unopened or raided by vandals.", "Message":"What secrets are found amongst the dust and mold?"}
+        ,{ "Map":[590, 122], "Room":"D14", "Use":"Any", "Description":"At the end of the hall the guiled doors lie trampled and torn on the floor. The plastered walls show the last battle before the dragon, Deerg, ate the king. It is signed 'by his grateful peasants'."}
+        ,{ "Map":[544, 142], "Room":"D15", "Use":"Any", "Description":"The celebration depicted on the plaster on the wall looks as fresh as when the peasant revolted against the king to get back their property and rights."}
+        ,{ "Map":[484, 122], "Room":"D16", "Use":"Any", "Description":"The histories are now told by hastily made murals telling of the destruction of the capital city by the dragon and a rabble of peasants. Peasants who would raid the ruins to get back some of what was taken from them."}
+        ,{ "Map":[389, 125], "Room":"D17", "Use":"Any", "Description":"The corridor goes on into the darkness. More tapestries tell of a pleasant land conquered by blood turned to dry sand from the river to the Misty Bay. The desolation of Deerg."}
+        ,{ "Map":[297,  64], "Room":"D18", "Use":"Any", "Description":"The door drops into the floor - mind the gap - leading to a secret room unknown and unwatched for an age. What valuables are hidden inside or has it been robbed of its contents and glory?"}
+        ,{ "Map":[280, 117], "Room":"D19", "Use":"None", "Description":"The light of the torch shows a dirge written on fading parchment of the king stealing the only offspring of a dragon.  A decision not popular with all involved. As you read it turns to dust."}
+        ,{ "Map":[332, 111], "Room":"D20", "Use":"Any", "Description":"Another long passage that quickly turns to the right. Ancient roughly weaved tapestries that turn to dust when touched tell the story of a dragon that arose from the Eastern Cedar woods and poisoned the lake on the main road."}
+        ,{ "Map":[203, 254], "Room":"D21", "Use":"Any", "Description":"Another wide hallway with doors on the left or right. Two have been broken but others lie sealed with their dark secrets. Why were they left undisturbed?  Perhaps you should do the same. "}
+        ,{ "Map":[ 82,  78], "Room":"D22", "Use":"Any", "Description":"The opening of the secret door sends a claxon ringing in some distant room and a rumble shakes they walls. What treasure can be found here?"}
+        ,{ "Map":[ 75, 158], "Room":"D23", "Use":"Any", "Description":"The tomb of the last king as he lies in state.  His statue and portrait lay smashed upon the broken lid. No rest for him here as tomb raiders did their deeds long before you arrived."}
+        ,{ "Map":[ 78, 239], "Room":"D24", "Use":"Any", "Description":"The walls were filled with the platforms for the coffins of the kings. Now they are empty reminders of those who sought to benefit from the theft from others. Royal thieves, all."}
+        ,{ "Map":[127, 248], "Room":"D26", "Use":"Monster", "Description":"The stone door lies in pieces on the floor. You have entered the tombs of the kings. Darkness is like a blanket dimming your torch light. What ever was here has been dragged away by a creature of great anger and strength."}
+        ,{ "Map":[525, 287], "Room":"D27", "Use":"Any", "Description":"Another prison cell which could hold many men, now the bars are melted - twisted caricature of their once proud strength."}
+        ,{ "Map":[477, 381], "Room":"D28", "Use":"Any", "Description":"You find a prison cell made for men of wealth and means, perhaps even royalty.  Name scratched on the walls remind one of the king's own family. The key is still in the open lock."}
+        ,{ "Map":[445, 331], "Room":"D30", "Use":"Monster", "Description":"An iron cage hangs from a hook in the ceiling in an alcove hastily carved into a wall. Why the haste? Who was its last renter? Did they overstay their welcome?"}
+        ,{ "Map":[356, 357], "Room":"D31", "Use":"Any", "Description":"There before you is an entrance to the dungeon, now burnt and broken. Beware the spirits of the dead that may reside inside!"}
+        ,{ "Map":[240, 350], "Room":"D32", "Use":"Any", "Description":"The passage open to a large room with doors to the left and right. Doors that lie useless on the cold stone floor. A strange mist still hangs in the fetid air, making it hard to see or breathe."}
+        ,{ "Map":[155, 512], "Room":"D33", "Use":"Any", "Description":"You see the remains of a wine cellar is a sea of broken bottles and charred wood. A place of merry-making no longer.  The glass sparkles in the flickering torch light."}
+        ,{ "Map":[217, 443], "Room":"D34", "Use":"Any", "Description":"The hallway is lined with empty pedestals - their statues in shattered piles upon the floor. Brass name plates name the lineage of kings, but the last pedestal is missing."}
+        ,{ "Map":[240, 520], "Room":"D35", "Use":"Any", "Description":"Chewed rock gives way to an small alcove with a hole above it disappearing into the ceiling. You now realize these are ROUS tunnels linking many of the rooms into a labyrinth of passages."}
+        ,{ "Map":[250, 550], "Room":"D36", "Use":"Any", "Description":"A crevase hiding in the darkness leads deep into the mountain.  One wonders what evils crept out of it to raid the forgotten halls."}
+        ,{ "Map":[308, 497], "Room":"D37", "Use":"Any", "Description":"What once was a dining room of enormous splendor is now charred memories. The wall were spared - they hold portraits of the succession of kings with the last portrait missing."}
+        ,{ "Map":[310, 582], "Room":"D38", "Use":"Any", "Description":"Scorched walls leave little trace of the finery that once adorned them. Perhaps you can hear the ancient echo of princes feasting in the dining room ahead."}
+        ,{ "Map":[329, 681], "Room":"D39", "Use":"Any", "Description":"A hallway leads to fancy doors ripped off their hinges.  The wall hangings tell of a king conscripting tradesmen to work for his army and taxes collected from farmers to pay their salaries."}
+        ,{ "Map":[118, 699], "Room":"D40", "Use":"Any", "Description":"A battered door was the last hope of those trapped with the guard bunkhouse. A carving on the walls shows the change in demeanor of a victorious king."}
+        ,{ "Map":[ 90, 773], "Room":"D41", "Use":"Any", "Description":"The shattered remains of racks of weapons now relegated to broken dreams of what they once were. A tattered flag on a broken pose shows the kingdoms and cities made subservient to a new ruler."}
+        ,{ "Map":[108, 849], "Room":"D42", "Use":"Any", "Description":"A storage room long vandalized and its contents left to rot. The ancient tapestry on its wall tells of a young king excelling in battle."}
+        ,{ "Map":[263, 769], "Room":"D45", "Use":"Any", "Description":"Ahead is a room whose wooden contents were smashed with great violence and clothing shredded to rotting shreds."}
+        ,{ "Map":[717, 661], "Room":"D47", "Use":"Any", "Description":"At the end of the room water slowly drains down by you feet and into some subterranean pipe.  Ahead is a large chamber shrouded in darkness with a dim light in the distance and a soft low rumble. Close by are huge piles of gold coins and articles of gold and tarnished silver."}
+        ,{ "Map":[718, 718], "Room":"D48", "Use":"Monster", "Description":"This secret room was never discovered.  Pots and pans long corroded line the stone shelves. The room ends at a iron grate on the floor the sound of falling water. The iron grate has a steel fence on top of it blocking the passage. A corner of the grate has corroded allowing you to slip under it and walk to look into the next room."}
+        ,{ "Map":[783, 734], "Room":"D49", "Use":"Any", "Description":"A final storage room when grains and other foodstuffs were stored.  The shelves are empty and the floor is littered with broken pottery."}
+        ,{ "Map":[788, 865], "Room":"D50", "Use":"Any", "Description":"Past a shattered wooden door is a small room with a stone table and a few shelves.  The table is covered with dust and mold."}
+        ,{ "Map":[811, 804], "Room":"D51", "Use":"Any", "Description":"What food these storage shelves once held was long ago eaten by rats and cave vermin.  The shelves are now empty."}
+        ,{ "Map":[613, 866], "Room":"D53", "Use":"Any", "Description":"A bakery room with a large stone oven and a pile of ash where the fire once burned. The walls are still stained with soot."}
+        ,{ "Map":[600, 813], "Room":"D56", "Use":"Any", "Description":"This long room is what remains of the kitchen for the caverns, now smashed and long picked over by cave vermin.  Do any remain? Listen carefully!"}
+        ,{ "Map":[725, 644], "Room":"D57", "Use":"Any", "Description":"There is a tremendous dark cavern in front of you, but there is the glitter of gold just out of reach. Who carelessly left it here unguarded? If this belongs to a dragon you may not want to steal it!"}
+        ,{ "Map":[450, 980], "Room":"D58", "Use":"None", "Description":"You enter through the ancient doors of the last king of the Lost Kingdom. The pillared room ends at a rickety oak bridge over a deep chasm."}
+        ,{ "Map":[ 80, 327], "Room":"D25", "Use":"Monster", "Description":"Behind the secret door that just opened lies the library of wisdom collected from centuries of kings, both good and evil. Now just dust swirling in the air as fresh air pushes out they staleness of their passing."}
+        ,{ "Map":[759, 810], "Room":"D52", "Use":"Monster", "Description":"A short corridor leads to a scullery.  Water still flows from a log corroded pipe into a broken stone sink. Broken pottery lies everywhere."}
+        ,{ "Map":[301, 841], "Room":"D44", "Use":"Monster", "Description":"The stone table and wooden chairs lie broken or charred in a corner.  Graffiti from solders are carved and scrawled on the walls. The last scratched called for help."}
+        ,{ "Map":[417, 267], "Room":"D29", "Use":"Monster", "Description":"The light reveals a chamber of horrors with many names carved onto the haunted walls. A place to avoid."}
+        ,{ "Map":[155, 771], "Room":"D43", "Use":"Weapon", "Description":"The broken iron studded door lies on the floor. Only the skeletons of the guards stand watch now. Nothing of value appears to have been left behind."}
+        ,{ "Map":[548, 720], "Room":"D54", "Use":"Treasure", "Description":"A cold storage room carved deep to hold ice. The walls are mysteriously still thick with frost and the floor is slick with ice."}
+        ,{ "Map":[533, 762], "Room":"D55", "Use":"Treasure", "Description":"A storage room which was once barricaded as a last stand against some terrible foe.  The walls are scarred with claw marks and the door is battered and broken."}
+        ,{ "Map":[419, 761], "Room":"D46", "Use":"Treasure", "Description":"You see a wide corridor with an entrance to the right and two to the left. The floor contains untouched dust and the beautiful wall paintings celebrate a young prince becoming a king."}
+    ]
+}

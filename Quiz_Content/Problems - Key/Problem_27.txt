@@ -1,0 +1,23 @@
+{
+    "Title": "A Rose by any Other Name!",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Decisions",
+    "PostReGex":[],
+    "Variables":["temp",'answer','myList','flowers'],
+    "Parameters":['Lilly','Thorn'],
+    "Return":"Lilly is in my list of flowers, but Thorn is not a flower.",
+    "Instructions": "Use if and else with the ~in~ keyword to decide what the answer is."
+}
+def myFunction(a,b):
+    myList = "Lilly,Daisy,Tulip,Iris"
+    flowers = myList.split(",")
+    if a in flowers:
+        answer = f"{a} is in my list of flowers"
+    else:
+        answer = f"{a} is not in my list of flowers"
+    if b in flowers:
+        answer += f", but {b} is a flower."
+    else:
+        answer += f", but {b} is not a flower."
+    return answer
