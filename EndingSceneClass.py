@@ -85,13 +85,16 @@ class EndingSceneClass():
         self.senarioMapDictionary['tags'] = tags
         self.map = MapClass(self.canvas, data=self.data, **self.senarioMapDictionary)
 
+        # Movement has been lost somehow, so reinstate it
+        
+
         # place the player back into their house
         targetCircleLocation = quiz.get("Target Location", (0,0))
         self.map.os_x_adjustment, self.map.os_y_adjustment = self.canvas.window.returnMacOSAdjustment()
         self.setupMap(alternativeDotStart=targetCircleLocation)
 
         # Set up a new instruction canvas with the copied adventure text plus epilogue
-        self.questInstructions = InstructionClass( self.canvas, self.data, *self.questPlacement, text=adventureText, label="Game Over")
+        self.questInstructions = InstructionClass( self.canvas, self.data, *self.questPlacement, text=adventureText, label="Adventury Diary")
         self.data.setResource('questInstructions', self.questInstructions)
         quiz = self.data.getResource('quiz')
         epilogueEnding = quiz.get("Epilogue", "You have completed the quest!")
@@ -101,6 +104,11 @@ class EndingSceneClass():
         # Save the gameText into a file named "GameResult.txt in the current working directory
         self.data.writeGameResult("Game is Over", includeErrors=True)
 
+    def OK_buttonSelected(self, *args):
+        self.messageCanvas.undraw()
+        self.canvas.widget.focus_set()
+
+        
     # Set up any initial major map and the player dot or the map at the end with the player home
     def setupMap(self, targetCircleLocation=None, playerDotLocation='Center', alternativeDotStart=None):
 
@@ -145,7 +153,7 @@ class EndingSceneClass():
         width += 20
         self.messageCanvas = Canvas(self.canvas, x=x, y=y, width=width, height=height, background="Mist")
         OKButton(self.messageCanvas, Point(width-62,height-32), Point(width-2,height-2), OkText=" OK ",
-                                 action=self.messageCanvas.undraw, squaricle=True)
+                                 action=self.OK_buttonSelected, squaricle=True)
 
         text="You have completed the adventure! Your adventure has been saved to a file named 'GameResult.txt' \
 and you can read about it in the instruction window. Turn in this GameResult file for grading. \

@@ -11,7 +11,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "env": {
-                "PYTHONPATH":"/Users/jeff/Documents/Last King Project/Library"
+                "PYTHONPATH":"/Users/jeff/Documents/MacOS_Midterm/Library"
             }
         }
     ]
