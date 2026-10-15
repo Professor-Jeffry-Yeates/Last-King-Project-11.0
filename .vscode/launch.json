@@ -10,9 +10,6 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "env": {
-                "PYTHONPATH":"/Users/jeff/Documents/MacOS_Midtem/MacOS_Python_Midterm/Library"
-            }
         }
     ]
 }

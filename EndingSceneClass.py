@@ -56,6 +56,7 @@ class EndingSceneClass():
         # Code divided historically
         self.gameEndsReturnHome()
         self.finalMessage()
+        self.canvas.update()
 
     # Set up the game is over, display an ending
     def gameEndsReturnHome( self, *args):
@@ -79,7 +80,7 @@ class EndingSceneClass():
 
         # Make a new map (which is the original map)
         quiz = self.data.getResource('quiz')
-        self.senarioMapDictionary = {'x':self.x, 'y':self.y, 'width': self.width, 'height': self.height, 
+        self.senarioMapDictionary = {'x':self.x, 'y':self.y, 'width': self.width, 'height': self.height, 'mouseOnly':False,
                 'mapImage':quiz["SenarioMap"], 'mapPath':quiz["SenarioMap Path"] }
         tags = self.dictionary.get('tags', "scenario")
         self.senarioMapDictionary['tags'] = tags
@@ -108,7 +109,6 @@ class EndingSceneClass():
         self.messageCanvas.undraw()
         self.canvas.widget.focus_set()
 
-        
     # Set up any initial major map and the player dot or the map at the end with the player home
     def setupMap(self, targetCircleLocation=None, playerDotLocation='Center', alternativeDotStart=None):
 
@@ -124,6 +124,10 @@ class EndingSceneClass():
             coord = self.map.getCurrentCenterLocation()
         else:
             coord = playerDotLocation
+        
+        # Mac OS is slow with tkinter so player moves farther
+        self.map.os_x_adjustment, self.map.os_y_adjustment = self.canvas.window.returnMacOSAdjustment()
+
         self.map.setCenterObject( senarioMapPlayer, coord[0], coord[1])
         showPath = self.dictionary.get('showPath', False)
 
@@ -140,10 +144,6 @@ class EndingSceneClass():
 
         # Put the player on top
         self.map.setCenterObjectToTop()
-        self.canvas.update()
-        
-        # Mac OS is slow with tkinter so player moves farther
-        self.map.os_x_adjustment, self.map.os_y_adjustment = self.canvas.window.returnMacOSAdjustment()
 
     def finalMessage(self): # 300, 300, 400, 200
         title = "Game Completed"
@@ -172,7 +172,6 @@ Seecyu land all you want. Watch out for trolls!"
                                  scrolling=True, kind="vertical", readOnly=True)
         self.messageBar.setReadOnly(True)
         self.messageBar.set( text )
-        self.canvas.update()
         
     def processClosing(self):
         self.map.undraw()
