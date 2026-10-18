@@ -8,7 +8,7 @@ from StudentInfoClass import StudentInfoClass
 from DungeonMapClass import DungeonMapClass
 from SetupGameClass import SetupGameClass
 
-gameSetup = SetupGameClass("Quiz_Content", debugging=True, shortcut=True, showPath=False)
+gameSetup = SetupGameClass("Quiz_Content", debugging=False, shortcut=True, showPath=False)
 (canvas, data) = gameSetup.primaryValues()
 
 # Scene 1 is player name input

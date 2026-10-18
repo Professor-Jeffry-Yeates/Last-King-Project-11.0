@@ -1,4 +1,4 @@
-__version__ = '8.0'
+__version__ = '11.0'
 from CoffeeCanvas  import *
 from CoffeeColors import *
 from MapClass import *
