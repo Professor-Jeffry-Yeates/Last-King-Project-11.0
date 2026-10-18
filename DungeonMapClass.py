@@ -70,7 +70,7 @@ class DungeonMapClass():
         data.setExitingFunction(self.processGameExit)
         
         # Mac OS is slow with tkinter so player moves farther
-        self.playersMap.map.os_x_adjustment, self.playersMap.map.os_y_adjustment = self.canvas.window.returnMacOSAdjustment()
+        self.playersMap.map.os_x_adjustment, self.playersMap.map.os_y_adjustment, _, _ = self.canvas.window.returnMacOSAdjustment()
         self.playersMap.setupMap()
         
         # Start timing

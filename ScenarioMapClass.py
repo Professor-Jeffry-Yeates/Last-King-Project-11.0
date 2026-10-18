@@ -122,7 +122,8 @@ class ScenarioMapClass():
         self.canvas.update()
         
         # Mac OS is slow with tkinter so player moves farther
-        self.map.os_x_adjustment, self.map.os_y_adjustment = self.canvas.window.returnMacOSAdjustment()
+        self.map.os_x_adjustment, self.map.os_y_adjustment, _, _ = self.canvas.window.returnMacOSAdjustment()
+        pass
                            
     def processClosing(self, *args):
         if ( debugging:= self.data.getResource('debugging')): debugging.stop()

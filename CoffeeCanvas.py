@@ -78,8 +78,12 @@ class Window():
         self.comboboxFont = dictionary.get('checkBoxFont', None) # Combobox characteristics are set once just before starting the window loop
         self.comboboxBackgroundColor = None
         self.MacOS = (platform.system() == 'Darwin') # Used to adjust for MacOS
+        self.MacOS_mousePause = 10 # Pause to slow down MacOS keypad movement
+        self.MacOS_keyPause = 500 # Pause to slow down MacOS keypad movement
+        self.MacOS_mouseIncrement = 1 # MacOS is very slow with mouse movement, so move more pixels
         self.darkMode = self.checkDarkMode()
         background = dictionary.pop('background', 'White')
+
         background = self.colors.get(background, background) 
         self.widget.configure(bg=background) # Set the background color of the window
         self.processArguments(dictionary)
@@ -406,9 +410,9 @@ class Window():
         return darkMode    
     def returnMacOSAdjustment(self):
         if self.MacOS:
-            return 4,4
+            return self.MacOS_mouseIncrement, self.MacOS_mouseIncrement, self.MacOS_mousePause, self.MacOS_keyPause
         else:
-            return 0,0
+            return 0,0,0,0
     def mainloop(self):
         # This changes the font for the selection list in a combobox
         if self.comboboxFont is not None:

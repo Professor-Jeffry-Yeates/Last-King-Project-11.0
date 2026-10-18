@@ -91,7 +91,7 @@ class EndingSceneClass():
 
         # place the player back into their house
         targetCircleLocation = quiz.get("Target Location", (0,0))
-        self.map.os_x_adjustment, self.map.os_y_adjustment = self.canvas.window.returnMacOSAdjustment()
+        self.map.os_x_adjustment, self.map.os_y_adjustment, _, _ = self.canvas.window.returnMacOSAdjustment()
         self.setupMap(alternativeDotStart=targetCircleLocation)
 
         # Set up a new instruction canvas with the copied adventure text plus epilogue
@@ -126,7 +126,7 @@ class EndingSceneClass():
             coord = playerDotLocation
         
         # Mac OS is slow with tkinter so player moves farther
-        self.map.os_x_adjustment, self.map.os_y_adjustment = self.canvas.window.returnMacOSAdjustment()
+        self.map.os_x_adjustment, self.map.os_y_adjustment, _, _ = self.canvas.window.returnMacOSAdjustment()
 
         self.map.setCenterObject( senarioMapPlayer, coord[0], coord[1])
         showPath = self.dictionary.get('showPath', False)

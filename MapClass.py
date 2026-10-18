@@ -16,7 +16,7 @@ MAP_CYAN = MAP_GREEN + MAP_BLUE
 MAP_MAGENTA = MAP_RED + MAP_BLUE
 MAP_WHITE = MAP_RED + MAP_GREEN + MAP_BLUE
 
-MACOS_PAUSE = 30
+#MACOS_PAUSE = 30
 standardFont = ("TKDefaultFont", 12)
 standardFormat = dict( sticky="fullwidth", borderwidth=0, background="White", font=standardFont )
 frameFormat = dict( sticky="full", relief=tk.SOLID, borderwidth=1, font=(standardFont[0], standardFont[1], 'bold italic'), pady=5)
@@ -183,6 +183,9 @@ class BasicMapClass():
         self.scrollIncrement = DEFAULT_MOVEMENT
         self.os_y_adjustment = 0 # MacOS is very slow
         self.os_x_adjustment = 0
+        _,_,mousePause, keyPause = topCanvas.window.returnMacOSAdjustment()
+        self.MacOS_mousePause = mousePause
+        self.MacOS_keyPause = keyPause
         self.mouseOnly = dictionary.get('mouseOnly', False) # When True, only mouse input is accepted, otherwise mouse and keys
         self.scrollWidth = dictionary.get('scrollWidth', None) # Width of scrollable part of canvas.  Can be much larger than width
         self.scrollHeight = dictionary.get('scrollHeight', None) # Height of scrollable part of canvas.  Can be much larger than height
@@ -621,7 +624,7 @@ class BasicMapClass():
                     self.canvas.widget.xview_scroll(x_movement,'units')
                     self.x_adjustment += x_movement
             if smoothing:
-                self.canvas.update(MACOS_PAUSE)
+                self.canvas.update(1)
 
             # Control of any remote or minimap (but they can't call themselves, 
             # the minimap can scroll without a center object)
@@ -845,8 +848,12 @@ class BasicMapClass():
                     self.moving('Left', standardCheck=standardCheck)
                 elif direction == RR:
                     self.moving('Right', standardCheck=standardCheck)
-                if showMovement: 
-                    self.canvas.update(MACOS_PAUSE)
+            
+            if showMovement: 
+                if len(moves) > 0: 
+                    self.canvas.update(self.MacOS_mousePause)
+                else:
+                    self.canvas.update(self.MacOS_keyPause)
 
     def getFourDimensions(self, arguments):
         "Extract coordinates from the arguments and return them as a tuple, often as (x,y,width,height)."
