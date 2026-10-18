@@ -10,5 +10,5 @@
     "Instructions": "Return the variable, ~answer~, with the first and last letter removed from parameer, ~a~.  The variable ~answer~ should be used. "
 }
 def myFunction(a):
-    answer = a[1:-1]
+    answer = a[0]
     return answer

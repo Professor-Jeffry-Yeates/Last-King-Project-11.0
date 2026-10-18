@@ -10,5 +10,5 @@
     "Instructions": "Return the variable, ~answer~, with the text in parameter, a, reversed (but no looping).  The variable answer should be used. "
 }
 def myFunction(a):
-    answer = a[::-1]
+    answer = a[0]
     return answer

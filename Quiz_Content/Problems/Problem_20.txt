@@ -15,5 +15,5 @@ def myFunction(a,b):
     for _ in range(a):
         for _ in range(b):
             pass
-    number = a * b
+    number = 0
     return number

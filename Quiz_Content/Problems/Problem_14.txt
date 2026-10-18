@@ -10,9 +10,9 @@
     "Variables":["temp"],
     "Instructions": "With the ~continue~ statement we can stop the current iteration, and continue with the next. Continue in order to skip a = 3."
 }
-def myFunction(a):
+def myFunction(a)
     x = 0
-    while x < a:
+    while x == a
         if a == 3: continue
         x += 1
     return x

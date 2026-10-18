@@ -15,8 +15,8 @@ def myFunction(a,b):
     z = int(3) + float(a + z) 
     x = max(7,min(2,9000 + b))
     y = ((b * x**3)/(x-b))/a
-    answer = sum([1,2,3,4,5])
+    a = sum([1,2,3,4,5])
     c = True
     c = "abcdefg"
     b = c[2:-1]
-    return answer
+    return a

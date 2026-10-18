@@ -12,6 +12,6 @@
 }
 def myFunction(a,b):
     x = 0
-    for count in range(a, b):
-        x += count
+    for count in range(a, b)
+        x = count
     return x

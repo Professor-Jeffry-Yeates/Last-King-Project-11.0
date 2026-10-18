@@ -13,4 +13,4 @@ def myFunction(a,b):
     x = a - b
     y =- b - b - b
     z = b + a + a
-    return x * y * z
+    return x

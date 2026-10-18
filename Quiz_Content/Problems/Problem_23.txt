@@ -10,5 +10,5 @@
     "Instructions": "Return the variable, ~answer~, with the first 5 letters of the text in parameter ~a~, in upper case and with no extra spaces.  The variable ~answer~ should be used. "
 }
 def myFunction(a):
-    answer = a[:5].upper().strip()
+    answer = a[].().()
     return answer

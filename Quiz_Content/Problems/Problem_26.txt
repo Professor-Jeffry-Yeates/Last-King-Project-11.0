@@ -7,13 +7,13 @@
     "Variables":["temp",'answer'],
     "Parameters":[2,3],
     "Return":"a < b",
-    "Instructions": "Use if, elif, and else to decide what the answer is. You may use ~answer~ as a variable."
+    "Instructions": "Use if, elif, and else to decide what the answer is. Return the answer variable. You may use ~answer~ as a variable."
 }
-def myFunction(a,b):
-    if a > b:
+def myFunction(a,b)
+    if a > b
         answer = "a > b"
-    elif a == b:
+    elif a == b
         answer = "a == b"
-    else:
+    else
         answer = "a < b"
-    return answer
+    return a

@@ -10,11 +10,11 @@
     "Instructions": "Return the variable, ~answer~, with the following done in order to parameter ~a~; strip off excess white space, split words on a space and split into a list, capitalize all first letters, then combine the words back into a sentence. The variable answer should be used. "
 }
 def myFunction(a):
-    answer = a.strip()
-    listing = answer.split(' ')
+    b = a
+    listing = b
     answer = ""
     for x in range(len(listing)):
         listing[x] =listing[x].capitalize()
-        answer+=listing[x]+ " "
-    answer = answer.strip()
+        answer = listing[x]+ " "
+    answer = answer.()
     return answer

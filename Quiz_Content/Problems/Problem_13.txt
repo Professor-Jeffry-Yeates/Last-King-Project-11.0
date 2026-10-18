@@ -14,5 +14,5 @@ def myFunction(a):
     x = 0
     while x < a:
         x += 1
-        if x == 3: break
+        break
     return x

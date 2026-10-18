@@ -12,11 +12,11 @@
 def myFunction(c):
     response = "And you fall into the {} category"
     category = ""
-    if c < 18.5:
+    if category < 18.5:
         category = "underweight"
-    elif c < 25:
+    elif category < 25:
         category = "normal weight"
-    elif c < 30:
+    elif category < 30:
         category = "overweight"
     else:
         category = "obese"

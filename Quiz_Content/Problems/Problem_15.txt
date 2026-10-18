@@ -10,10 +10,10 @@
     "Variables":["temp"],
     "Instructions": "With the ~else~ statement we can run a block of code once when the condition no longer is true. Loop while y < a."
 }
-def myFunction(a):
+def myFunction(a)
     y = 1
-    while y < a:
+    while y < a
       y += 1
-    else:
+    else
       x = 100
     return x
