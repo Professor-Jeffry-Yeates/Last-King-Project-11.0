@@ -643,23 +643,9 @@ class Canvas():
     def update(self, rate=None, usingWindows=False):
         """Update the window and pause for rate seconds"""
         if not self.drawn: return
-
-        # self.canvas.update() has Tcl/Tk 8.6.1 regression issue in MacOS         
-        usingMacOS = False if usingWindows else self.window.MacOS
-        if usingMacOS: 
-            pauseRate = 1 if rate is None else min(rate,500)
-            self.root.after(pauseRate,self.root.update_idletasks())
-
-        # Windows does not have the issue
-        elif rate is not None:
-            now = time.time()
-            pauseLength = 1/rate-(now - self._update_lasttime)
-            if pauseLength > 0:
-                time.sleep(pauseLength)
-                self._update_lasttime = now + pauseLength
-            else:
-                self._update_lasttime = now
-            self.root.update_idletasks()
+        if rate is None: return
+        pauseRate = 1 if rate <= 0 else min(rate,500)
+        self.root.after(pauseRate,self.root.update_idletasks())
 
     def quit(self, *args):
         """Quit the window"""

@@ -33,7 +33,7 @@ missing module named multiprocessing.get_context - imported by multiprocessing (
 missing module named multiprocessing.TimeoutError - imported by multiprocessing (top-level), multiprocessing.pool (top-level)
 missing module named multiprocessing.set_start_method - imported by multiprocessing (top-level), multiprocessing.spawn (top-level)
 missing module named multiprocessing.get_start_method - imported by multiprocessing (top-level), multiprocessing.spawn (top-level)
-missing module named pyodbc - imported by DatabaseClasses (conditional)
+missing module named pyodbc - imported by DatabaseClasses (conditional, optional)
 missing module named vms_lib - imported by platform (delayed, optional)
 missing module named 'java.lang' - imported by platform (delayed, optional)
 missing module named java - imported by platform (delayed)

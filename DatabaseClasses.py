@@ -1,10 +1,13 @@
 __version__ = "11.0"
 import sys, socket
-if sys.platform.lower() == "darwin":
-    import random as pyodbc # Stop the error but may crash - DB not implemented for MacOS
-else:
-    import pyodbc
-    import random as pyodbc # Stop the error but may crash - DB not implemented for MacOS
+try:    
+    if sys.platform.lower() == "darwin":
+        pass # Stop the error but may crash - DB not implemented for MacOS
+    else:
+        import pyodbc
+except:
+    pass
+    
 #################################################################################################
 # Classes to hold communications and the response from a database query
 class DatabaseInfo:
