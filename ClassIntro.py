@@ -1,4 +1,6 @@
 __version__="11.0.0"
+import multiprocessing, sys
+multiprocessing.freeze_support()
 
 # Setup GUI and imports
 from ScenarioMapClass import *

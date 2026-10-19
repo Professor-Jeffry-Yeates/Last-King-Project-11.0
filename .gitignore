@@ -1,1 +1,8 @@
 __pycache__/*.cpython-314.pyc
+__pycache__/*.cpython-313.pyc
+dist/ClassIntro/_internal/*.dll
+dist/ClassIntro/_internal/*.pyd
+build/ClassIntro/localpycs/*.pyc
+dist/ClassIntro/_internal/*
+build/ClassIntro/ClassIntro.exe
+dist/ClassIntro/ClassIntro.exe
