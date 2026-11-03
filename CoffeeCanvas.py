@@ -1,5 +1,5 @@
 # CoffeeCanvas
-__version__ = '11.0'
+__version__ = '11.1'
 """This library contains basic graphics based on the Tkinter library.  All graphic
 elements are based on the Canvas widget.  The library is designed to be simple to use
 and to provide the complete range of Tkinter Canvas graphical objects.
@@ -49,6 +49,8 @@ from email.mime import text
 import tkinter as tk
 from tkinter import ttk
 import datetime
+# insure that pillow is installed in the version of Python that you are using.  
+# Pillow is not part of the standard Python library and must be installed separately.
 try:  
     from PIL import Image as PILImage
     from PIL import ImageTk
@@ -640,7 +642,7 @@ class Canvas():
         """Return the dimensions of the window as a tuple (width, height)"""
         return (self.x, self.y, self.width, self.height)
     
-    def update(self, rate=None, usingWindows=False):
+    def update(self, rate=0, usingWindows=False):
         """Update the window and pause for rate seconds"""
         if not self.drawn: return
         if rate is None: return

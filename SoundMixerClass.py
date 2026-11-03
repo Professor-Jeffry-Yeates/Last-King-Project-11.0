@@ -1,5 +1,5 @@
 # Game support classes
-__version__ = '8.0'
+__version__ = '11.0'
 import os, random
 from MultitaskingClasses import ThreadClass
 import pygame
