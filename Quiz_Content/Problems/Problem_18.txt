@@ -8,10 +8,10 @@
     "Variables":["temp","count","range"],
     "Parameters":[2,6],
     "Return":14,
-    "Instructions": "~For~ loops can run from a starting number to an ending number using the range() function. Loop from ~a~ to ~b~ using the ~count~ variable.  ~count~ can be used as a variable."
+    "Instructions": "You are provided unknown parameters ~a~ and ~b~. ~For~ loops can run from a starting number to an ending number using the range() function. Loop from ~a~ to ~b~ using the ~count~ variable."
 }
 def myFunction(a,b):
     x = 0
-    for count in range(a, b)
-        x = count
+    for count in [0,1,2,3,4,5]:
+        x += count
     return x

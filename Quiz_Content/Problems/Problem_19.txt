@@ -8,10 +8,10 @@
     "Parameters":[2,13],
     "Variables":["temp","count","range"],
     "Return":26,
-    "Instructions": "~For~ loops can run from a starting number to an ending number function stepping more than the default of 1. Loop from ~a~ to ~b~ stepping by 3 using range() and the ~count~ variable.  ~count~ can be used as a variable."
+    "Instructions": "You are provided unknown parameters ~a~ and ~b~. ~For~ loops can run from a starting number to an ending number function stepping more than the default of 1. Loop from ~a~ to ~b~ stepping by 3 using range() and the ~count~ variable."
 }
 def myFunction(a,b):
     x = 0
-    for count in range(0, 1, 2):
-        x = count
+    for count in range(100, 110):
+        x += count
     return x

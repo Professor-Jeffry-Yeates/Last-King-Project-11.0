@@ -4,20 +4,20 @@
     "Language": "Python",
     "Category": "Decisions",
     "PostReGex":[],
-    "Variables":["temp",'answer','myList','flowers'],
+    "Variables":["temp",'answer','flowerNames','flowerList'],
     "Parameters":['Lilly','Thorn'],
     "Return":"Lilly is in my list of flowers, but Thorn is not a flower.",
-    "Instructions": "Use if and else with the ~in~ keyword to decide what the answer is."
+    "Instructions": "You are provided string parameters ~a~ and ~b~. Use if and else with the ~in~ keyword to decide what the answer is."
 }
 def myFunction(a,b):
-    myList = "Lilly,Daisy,Tulip,Iris"
-    flowers = myList.split(",")
-    if a in flowers:
+    flowerNames = "Lilly,Daisy,Tulip,Iris"
+    flowerList = myList.split(",")
+     a in flowerList:
         answer = f"{a} is in my list of flowers"
-    else:
+    
         answer = f"{a} is not in my list of flowers"
-    if b in flowers:
+     b in flowerList:
         answer += f", but {b} is a flower."
-    else:
+    
         answer += f", but {b} is not a flower."
     return answer

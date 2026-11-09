@@ -8,10 +8,10 @@
     "Parameters":[2],
     "Return":"cherry",
     "Variables":["temp","shoppingList","item"],
-    "Instructions": "~For~ loops run a set number of iterations. Use the in keyword to loop for each fruit in the shopping list. Return the last item in the list. ~item~ can be used as a variable."
+    "Instructions": "You are provided an unknown parameter ~a~. ~For~ loops run a set number of iterations. Use the ~in~ keyword to loop for each fruit in the shopping list."
 }
 def myFunction(a):
     shoppingList = ["apple", "banana", "cherry"]
-    for a in shoppingList:
-      x = shoppingList
+    for a in range(5):
+      x = a
     return x

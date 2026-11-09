@@ -7,14 +7,13 @@
     "Variables":["temp","listing","answer","range","len"],
     "Parameters":["Twas brillig and the slithly toves"],
     "Return":"Twas Brillig And The Slithly Toves",
-    "Instructions": "Return the variable, ~answer~, with the following done in order to parameter ~a~; strip off excess white space, split words on a space and split into a list, capitalize all first letters, then combine the words back into a sentence. The variable answer should be used. "
+    "Instructions": "You are provided an unknown string parameter ~a~. Return the variable, ~answer~, with the following done to parameter ~a~ in this order; strip off excess white space, split the remaining words using a space into a list, capitalize all first letters in the list using the ~capitalize()~ function, then combine the words back into a sentence. You will have to add and modify lines of code. You may use the variables ~listing~ and ~answer~."
 }
 def myFunction(a):
-    b = a
-    listing = b
-    answer = ""
-    for x in range(len(listing)):
-        listing[x] =listing[x].capitalize()
-        answer = listing[x]+ " "
-    answer = answer.()
+    
+    
+    for x in range(     ):
+        listing[x] = listing[x].capitalize()
+        answer += listing[x] + " "
+    
     return answer

@@ -8,11 +8,11 @@
     "Parameters":[5],
     "Return":3,
     "Variables":["temp"],
-    "Instructions": "With the ~break~ statement we can stop the loop even if the while condition is true. Break when x = 3."
+    "Instructions": "You are given an unknown parameter ~a~. Using the ~break~ statement we can stop the loop even if the while condition is true. Break when x = 3."
 }
 def myFunction(a):
     x = 0
     while x < a:
         x += 1
-        break
+        if x: break
     return x

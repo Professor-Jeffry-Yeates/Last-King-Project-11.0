@@ -7,8 +7,8 @@
     "Variables":["temp","count","number","answer"],
     "Parameters":["abcdefg"],
     "Return":"gfedcba,
-    "Instructions": "Return the variable, ~answer~, with the text in parameter, a, reversed (but no looping).  The variable answer should be used. "
+    "Instructions": "You are provided an unknown string parameter ~a~. Return the variable, ~answer~, with the text from parameter, ~a~, reversed. Do not use any looping."
 }
 def myFunction(a):
-    answer = a[0]
+    answer = a[::-1]
     return answer

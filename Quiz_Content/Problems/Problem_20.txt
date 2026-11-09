@@ -9,11 +9,11 @@
     "Variables":["temp","count","number","range","pass","_"],
     "Parameters":[2,13],
     "Return":26,
-    "Instructions": "~For~ loops can run within other loops. A variable can be ignored using an ~_~ (underscore). Return the total ~number~ of times the these loops using x & y looped (there are several ways).  The variables ~count~ and ~number~ can be used."
+    "Instructions": "You are provided unknown parameters ~a~ and ~b~. ~For~ loops can run within other loops. A variable can be ignored by using an ~_~ (underscore). Use the underscore in at least one of the loops. Return the total ~number~ of times the these loops looped. There are several ways to do this and you may need to add some lines of code. The variables ~x~, ~y~, ~z~, ~count~ and ~number~ can be used."
 }
 def myFunction(a,b):
     for _ in range(a):
         for _ in range(b):
             pass
-    number = 0
+    
     return number

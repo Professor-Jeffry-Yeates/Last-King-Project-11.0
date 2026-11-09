@@ -8,10 +8,10 @@
     "Parameters":[5],
     "Return":5,
     "Variables":["temp"],
-    "Instructions": "Loop until ~x~ is larger that the parameter, ~a~. Then return ~x~."
+    "Instructions": "Given an unknown parameter ~a~, loop until ~x~ is larger that the parameter, ~a~. Then return ~x~ which has counted how many times the loop was used."
 }
 def myFunction(a):
     x = 0
-    while x <= a:
-        x += 1
+    while x < a:
+        x = 1
     return x

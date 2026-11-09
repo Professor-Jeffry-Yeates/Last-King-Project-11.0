@@ -3,6 +3,7 @@
     "Type": "CodeCheck",
     "Language": "Python",
     "Category": "Math",
+    "Imports": "math",
     "PostReGex":['.* answer .*=','.* return .*answer"],
     "Required":["answer"],
     "Variables": ["answer"],

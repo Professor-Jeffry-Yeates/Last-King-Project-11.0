@@ -7,8 +7,8 @@
     "Parameters":["abcdefg"],
     "Variables":["temp","count","number","answer"],
     "Return":"bcdef",
-    "Instructions": "Return the variable, ~answer~, with the first and last letter removed from parameer, ~a~.  The variable ~answer~ should be used. "
+    "Instructions": "You are provided an unknown string parameter ~a~. Return the variable, ~answer~, with the first and last letters removed from parameter ~a~.  The variable ~answer~ should be used with the return value. "
 }
 def myFunction(a):
-    answer = a[0]
-    return answer
+    answer = a[1:-1]
+    return a

@@ -92,16 +92,16 @@
      "Title": "Hi Bob!",
      "Type":  "Multiple Choice",
      "Reward": "Silver",
-     "Text":   "What will be the result of the following Python command given that name = '55' and age = Bob?    print('Hello',name,': age',3+name, sep=', ')",
-     "Options": ["Hello, 55, : age, 58","Hello, Bob: age, 58","An error will occur","Hello 55: age 58"]
+     "Text":   "What will be the result of the following Python command given that name = 'Sarah' and age = 19?    print('Hello',name,': age',3+age, sep=', ')",
+     "Options": ["Hello, Sarah, : age, 22","Hello, Sarah: age, 19","An error will occur","Hello Sarah: age 22"]
    }
    ,{
      "Name":    "Print Result",
      "Title":   "How old is Bob?",
      "Type":    "Multiple Choice",
      "Reward":  "Silver",
-     "Text":    "What will be the result of the following Python command given that name = 'Bob' and age = 55?    print(f'Hello {name}: age {(3+age/5):.3f}')  ",
-     "Options": ["Hello Bob: age 14.000","An error will occur","Hello {name}: age {(3+age/5):.3f}","Hello Bob: 14.0"]
+     "Text":    "What will be the result of the following Python command given that fruit = 'Banana' and price = 5.50?    print(f'Buy a {name}: price ${(5+price/5):.2f}')  ",
+     "Options": ["Buy a Banana: price $2.10","An error will occur","Buy a {name}: price {(5+price/5):.2f}","Buy a Banana: $2.10"]
    }
    ,{
      "Name":    "Print Result",
@@ -375,6 +375,12 @@
     "Type": "CodeCheck",
     "Language":"Python",
     "File":"Problem_28.txt",
+    "Reward":"Gold"
+  }
+   ,{ 
+    "Type": "CodeCheck",
+    "Language":"Python",
+    "File":"Problem_32.txt",
     "Reward":"Gold"
   }
   ]

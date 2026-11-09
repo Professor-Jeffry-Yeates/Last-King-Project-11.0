@@ -1,17 +1,21 @@
 {
-    "Title": "What are the Unsafe Possibilities?",
+    "Title": "What are the Product Possibilities?",
     "Type": "CodeCheck",
     "Language": "Python",
     "Category": "Math",
     "Imports": "math, random, datetime",
-    "Required":["answer","#"],
+    "Required":["answer","return"],
     "PostReGex":['.* answer .*=','.* return .*answer"],
     "Parameters":[5000,99],
     "Variables":"answer",
-    "Return":"5",
-    "UnsafeCode":true,
-    "Instructions": "Set the unsafe variable, ~answer~, equal to the provided sum function (near line 6) and return it."
+    "Return":"9208",
+
+    "Instructions": "You are provided unknown parameters ~a~ and ~b~. Set the variable, ~answer~, equal to itself times the ~z~ variable using the ~*=~ keyword."
 }
-# correct the code, delete this comment, then press SUBMIT
-answer = 5
-print(answer)
+def myFunction(a,b):
+    answer = 2
+    x = a - b
+    y =- b - b - b
+    z = x + y
+    
+    return answer
