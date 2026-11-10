@@ -219,7 +219,7 @@ class ItemClass():
         
     def fleeing(self, *args):
         """ Function to flee from the player or to a place. Will repeat independently until the Item is at that location"""
-        myCenterPoint = self.mapObject.getCenter()
+        myCenterPoint = self.mapObject.getCenter() if self.mapObject is not None else None
         if myCenterPoint is not None:
             myCenter = self.map.convertMapCoordinatesToStandard(myCenterPoint.x, myCenterPoint.y)
             x = 1 if myCenter[0] > self.flee_x else -1 if myCenter[0] < self.flee_x else 0
