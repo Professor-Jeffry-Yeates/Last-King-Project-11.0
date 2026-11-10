@@ -114,8 +114,7 @@ class GameTimerClass():
 
     def escapeRelease(self, event):
         """ Check torch timers while we are at it"""
-        player = self.data.getResource("player")
-        if player is not None:
+        if ( player := self.data.getResource("player")):
             self.data.torchCheck()
 
             # Message if out of questions
@@ -123,16 +122,21 @@ class GameTimerClass():
                 self.data.noMoreQuestionsMessage()
 
             # Get the location of the last object with a question and move there on <esc>
-            mapObject = player.lastQuestionObject
-            if mapObject is not None:
+            if ( mapObject := player.lastQuestionObject ):
                 coord = mapObject.dictionary["Map"]
                 bbox = self.canvas.widget.bbox(player.id)
                 moves = self.determineMouseMoves( coord, bbox)
                 self.map.setFlying(True)
                 self.map.performAutomaticMovement(moves, showMovement=True)
                 self.map.setFlying(False)
+                
+                # Escape can be needed when a question has been just deleted, asked, or asked later and movement is frozen
+                # Insure all question code is removed from being active
+                if ( questionArea := self.data.getResource("questionArea")):
+                    questionArea.on_discard()
+                    questionArea.clearAfterQuestion()
 
-                # You could be directly on an "ask later" treasure and get stuck.
+                # You could be directly on an different "ask later" treasure and get stuck.
                 # If so, forget if it was the last object so the question can get asked.
                 lastObject = self.data.getLastTouch()
                 if lastObject is not None:

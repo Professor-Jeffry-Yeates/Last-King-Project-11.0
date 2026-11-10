@@ -1222,7 +1222,7 @@ class DataClass():
                     if len(line) > 0 and line[0] == "}":
                         jsonFound = True
                         continue
-                    if line[-1] == '\n': line = line[:-1] # Remove newline character
+                    if len(line) > 0 and line[-1] == '\n': line = line[:-1] # Remove newline character
                     jsonList.append(line)  
                 
             # Everything was searched, now parse the JSON into a dictionary and save any answer
