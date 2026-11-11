@@ -15,5 +15,4 @@ def myFunction(a):
     for x in range(     ):
         listing[x] = listing[x].capitalize()
         answer += listing[x] + " "
-    
     return answer
