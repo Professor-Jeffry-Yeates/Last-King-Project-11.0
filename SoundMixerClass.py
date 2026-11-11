@@ -13,9 +13,13 @@ class SoundMixerClass:
         playSound(self, name, *args, volume=None, loops=0, **kwargs) - Play a specific sound, generally once but can be looped
         scheduleRandomSound(self, sound) - Schedule with timing control. The sound must have been defined as a random sound
         quit() - End using sound.
+        
+        Example: mixer = SoundMixerClass()  #  Use class with file in current working directory
+        Example: mixer = SoundMixerClass(theme=some_name, 'Music Path'=some_path), 'Sound Path'=some_path))
+        Example: mixer = SoundMixerClass(data, quiz)
     
     There are many specific pygame commands that can be used to control the music and sound effects.
-    Thses calls should be replaced with calls to a more simple sound/music library.
+    FUTURE: These calls should be replaced with calls to a more simple sound/music library.
     """
     
     def _extractParameter( text ):
@@ -38,12 +42,36 @@ class SoundMixerClass:
             return usefulText,parameter
     _extractParameter = staticmethod(_extractParameter)
 
-    def __init__(self, data, **kwargs):
+    def __init__(self, data=None, **kwargs):
         pygame.mixer.pre_init()
         pygame.mixer.init(channels=20)
         
-        self.data = data.setResource('soundMixer', self)
-        quiz = data.getResource('quiz') # If None, we have bigger problems!
+        # To allow this class to be stand-alone, without a data class, logError is just a print and no randomSounds
+        # Without a quiz or data, paths depend on kwargs and default to the current working directory
+        if data is None:
+            self.data = None
+            self.logError = lambda a : print(a)
+            self.randomSoundAllowed = False
+            self.currentThemeName = kwargs.get("theme", None)
+            self.musicSource = kwargs.get("Music Path", None)
+            self.soundSource = kwargs.get("Sounds Path", self.musicSource )
+        else:
+            self.data = data.setResource('soundMixer', self)
+            self.logError = self.data.logError
+            self.randomSoundAllowed = True
+            if ( quiz := data.getResource('quiz')): # If None, get music data directly from kwargs
+                self.currentThemeName = kwargs.get("theme", quiz["Theme"])
+                self.musicSource = quiz.get("Music Path", None)
+                self.soundSource = quiz.get("Sounds Path", None)
+            else:
+                self.currentThemeName = kwargs.get("theme", None)
+                self.musicSource = kwargs.get("Music Path", None)
+                self.soundSource = kwargs.get("Sounds Path", self.musicSource )
+                
+        default = os.getcwd
+        if self.musicSource is None: self.musicSource = self.soundSource
+        if self.soundSource is None: self.musicSource = default
+        if self.musicSource is None: self.musicSource = default
 
         self.soundChannels = dict() # Dictionary of currently playing (name:channel)
         self.standardVolume = 5
@@ -51,19 +79,14 @@ class SoundMixerClass:
         self.music = {}
         self.sounds = {}
         self.currentMusicName = kwargs.get("music", None)
-        self.currentThemeName = kwargs.get("theme", quiz["Theme"])
         self.lastThemeName = None
         self.continuousMusicThread = None
         self.continuousSoundThread = None
         self.playingSoundThread = None
 
-        self.musicSource = quiz.get("Music Path", None)
-        self.soundSource = quiz.get("Sounds Path", None)
-
         self.musicFiles = []
         self.soundFiles = []
         self.musicChannels = []
-        
         
         if self.musicSource is not None and self.soundSource is not None:
             if data.music is not None and len(data.music) > 0: self.initializeMusic(data.music, self.musicSource)
@@ -113,7 +136,7 @@ class SoundMixerClass:
                     try:
                         first, last = map(int, randomList.split("-"))
                     except:
-                        self.data.logError(f"SoundMixerClass.initializeSoundtracks: Invalid random range for sound >>{soundName}<<.")
+                        self.logError(f"SoundMixerClass.initializeSoundtracks: Invalid random range for sound >>{soundName}<<.")
                     else:
                         randomList = [first, last] # File name is also the name for random sounds
                         self.addSound(self.soundSource, name=soundName, filename=soundName, randomList=randomList)
@@ -166,13 +189,18 @@ class SoundMixerClass:
                 pass
                 #raise Exception(f"Sound file not found: {filepath}")
 
-    def scheduleRandomSound(self, sound):
-        randomly = sound.get("Random", None)
-        if randomly is not None and len(randomly) == 2:
-            number = random.randint(randomly[0], randomly[1])
-            name = sound["Name"]
-            function = [self.playSound,self.data.control.reschedule]
-            self.data.control.add(name, number, -1, function, name, randomly[0], randomly[1])
+    def scheduleRandomSound(self, sound=None):
+        if sound is not None and self.randomSoundAllowed:
+            try:
+                randomlyTuple = sound.get("Random", None)
+            except:
+                self.logError("Random sound dictionary not provided")
+            else:
+                if randomlyTuple is not None and len(randomlyTuple) == 2:
+                    number = random.randint(randomlyTuple[0], randomlyTuple[1])
+                    name = sound["Name"]
+                    function = [self.playSound,self.data.controlself.data.reschedule]
+                    self.data.control.add(name, number, -1, function, name, randomlyTuple[0], randomlyTuple[1])
 
     ###############  Music  ####################
     def initializeMusic(self, musicList, sourceFolder):
@@ -384,7 +412,7 @@ class SoundMixerClass:
             self.sounds[name] = sound
 
         except:
-            self.data.logError("SoundMixerClass.loadSound: Sound file not found >>" + file + "<<.")
+            self.logError("SoundMixerClass.loadSound: Sound file not found >>" + file + "<<.")
 
 
     # def removeSound(self, name):
