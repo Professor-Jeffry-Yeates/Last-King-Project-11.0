@@ -1,5 +1,5 @@
 {
-    "Title": "Is it Under Warrentee?",
+    "Title": "Is it Under Warentee?",
     "Type": "CodeCheck",
     "Language": "Python",
     "Category": "Strings",

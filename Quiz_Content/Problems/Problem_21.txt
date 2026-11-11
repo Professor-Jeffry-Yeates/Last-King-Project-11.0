@@ -1,0 +1,14 @@
+{
+    "Title": "Do you Understand String Theory?",
+    "Type": "CodeCheck",
+    "Language": "Python",
+    "Category": "Strings",
+    "PostReGex":['.*a[[]:-1[]]','.*return.*answer'],
+    "Parameters":["abcdefg"],
+    "Variables":["temp","count","number","answer"],
+    "Return":"bcdef",
+    "Instructions": "You are provided an unknown string parameter ~a~. Return the variable, ~answer~, with the first and last letters removed from parameter ~a~.  The variable ~answer~ should be used with the return value. "
+}
+def myFunction(a):
+    answer = a[1:-1]
+    return a
