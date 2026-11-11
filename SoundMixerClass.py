@@ -14,10 +14,11 @@ class SoundMixerClass:
         scheduleRandomSound(self, sound) - Schedule with timing control. The sound must have been defined as a random sound
         quit() - End using sound.
         
-        Example: mixer = SoundMixerClass()  #  Use class with file in current working directory
-        Example: mixer = SoundMixerClass(theme=some_name, 'Music Path'=some_path), 'Sound Path'=some_path))
+        Example: mixer = SoundMixerClass()  #  Use class with current working directory
+        Example: mixer = SoundMixerClass(theme=some_name, 'Music Path'=some_path, 'Sound Path'=some_path)
         Example: mixer = SoundMixerClass(data, quiz)
     
+    If only one path provided, both use the same path. No path defaults to the current working directory. 
     There are many specific pygame commands that can be used to control the music and sound effects.
     FUTURE: These calls should be replaced with calls to a more simple sound/music library.
     """
