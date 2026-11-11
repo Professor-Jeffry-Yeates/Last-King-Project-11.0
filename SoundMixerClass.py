@@ -173,15 +173,16 @@ class SoundMixerClass:
             if name is not None and filename is not None:
                 self.addSound(sourceFolder, name=name, filename=filename, randomList=randomList)
 
-    def addSound(self, sourceFolder, name=None, filename=None, randomList=[]):
+    def addSound(self, sourceFolder=None, name=None, filename=None, randomList=[]):
         """Add a sound to the sound mixer."""
         extensions = ['mp3', 'ogg', 'wav', 'aiff', 'mp4']
+        path = self.soundSource if sourceFolder is None else sourceFolder
         if name is not None and filename is not None:
             extensionFound = filename.find(".") >= 0
             if not extensionFound:
                 for extension in extensions:
                     filename += "." + extension
-                    filepath = os.path.join(sourceFolder, filename)
+                    filepath = os.path.join(path, filename)
                     extensionFound = os.path.exists(filepath)
                     if extensionFound: break
             if extensionFound:
@@ -211,15 +212,16 @@ class SoundMixerClass:
             if name is not None and filename is not None:
                 self.addMusic(sourceFolder, name=name, filename=filename)
 
-    def addMusic(self, sourceFolder, name=None, filename=None):
+    def addMusic(self, sourceFolder=None, name=None, filename=None):
         extensions = ['mp3', 'ogg', 'wav', 'aiff', 'mp4']
         filepath = ""
+        path = self.musicSource if sourceFolder is None else sourceFolder
         if name is not None and filename is not None:
             extensionFound = filename.find(".") >= 0
             if not extensionFound:
                 for extension in extensions:
                     tryFileName = filename + "." + extension
-                    filepath = os.path.join(sourceFolder, tryFileName)
+                    filepath = os.path.join(path, tryFileName)
                     extensionFound = os.path.exists(filepath)
                     if extensionFound: break
             if extensionFound:
