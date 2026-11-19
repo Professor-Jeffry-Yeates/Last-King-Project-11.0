@@ -5,7 +5,7 @@ class SpiderClass(ItemClass):
     """ Spider Class for the Spider in the game. Based off of the Item Class"""
 
     def __init__(self, data, dictionary, *args, **kwargs):
-        super().__init__(data, dictionary, *args, **kwargs, gender="she")
+        super().__init__(data, dictionary, *args, **kwargs, gender="she", kind="spider")
         
         self.SpiderBooty = None
         self.SpiderThieving = 0

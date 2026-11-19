@@ -35,14 +35,14 @@ class ItemClass():
         self.Saying = 12 # Just says something
 
         # Characteristics
+        self.ItemKind = dictionary.pop("kind", None)
+        self.ItemName = args[0] if len(args) > 0 else dictionary.get("Name",'')
         self.gender = dictionary.pop("gender", "it")
         self.Gender = self.gender[0].upper() + self.gender[1:]
         self.instructions = None
         self.mapObject = None
         self.Item = None
-        self.ItemName = args[0] if len(args) > 0 else dictionary.get("Name",'')
         self.ItemDictionary = dictionary
-        self.ItemKind = None
         self.ItemMatch = self.NotActivated
         self.lastItemMatch = None
         self.DefaultAction = None
@@ -371,6 +371,7 @@ class ItemClass():
                 weaponRetort = self.messageDictionary.get("defending axe","")
             else:
                 weaponRetort = self.messageDictionary.get("defending weapon","")
+                damaged = self.player.weaponIsDamaged()
             weaponRetort = weaponRetort.format(self.ItemName, weapon)
             retort = self.messageDictionary.get("defending retort","")
             self.ItemMatch = self.Leaving
