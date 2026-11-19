@@ -34,7 +34,7 @@ class BadgesClass():
         self.icons['Sword'] = os.path.join(self.icons['folder'], "Sword.png")
         self.icons['Broken Sword'] = os.path.join(self.icons['folder'], "Broken Sword.png")
         self.icons['Damaged Sword'] = os.path.join(self.icons['folder'], "Damaged Sword.png")
-        self.icons['Torch'] = os.path.join(self.icons['folder'], "Torch.png")
+        self.icons['Torch'] = os.path.join(self.icons['folder'], "Torch_burning.gif" ) #"Torch.png")
         self.icons['Axe'] = os.path.join(self.icons['folder'], "Axe.png" )
         self.iconsInUse = dict()
         
@@ -121,7 +121,7 @@ class BadgesClass():
                     # Torch may include the optinal amount
                     oldicon = self.torchIcon
                     if os.path.exists(iconPathToUse):
-                        self.torchIcon = Label( self.badgesFrame, text=f"{amount} X ", image=iconPathToUse, 
+                        self.torchIcon = GifLabel( self.badgesFrame, text=f"{amount} X ", image=iconPathToUse, 
                                                coord=(0,BadgesClass.TORCH_SLOT), font=standardFont, 
                                               compound=tk.RIGHT, sticky=tk.NSEW)
                         if oldicon is not None: oldicon.widget.destroy()
