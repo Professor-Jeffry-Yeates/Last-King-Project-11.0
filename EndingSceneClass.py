@@ -127,12 +127,11 @@ class EndingSceneClass():
         
         # Mac OS is slow with tkinter so player moves farther
         self.map.os_x_adjustment, self.map.os_y_adjustment, _, _ = self.canvas.window.returnMacOSAdjustment()
-
         self.map.setCenterObject( senarioMapPlayer, coord[0], coord[1])
-        showPath = self.dictionary.get('showPath', False)
 
         # For debugging, show where player can travel on the map (takes several minuites)
-        if showPath: self.map.showPathOnMap()
+        showPath = self.dictionary.get('showPath', False)
+        if showPath: self.map.showPathOnMap(self.canvas)
 
         # Display any NPC on the map
         quiz = self.data.getResource('quiz')
