@@ -636,6 +636,7 @@ class GifLabel(Label):
             raise tk.TclError(f"Cannot read GIF:\n{self.fullpath}")
 
         # Determine delay information
+        self.numberOfFrames = len(self.frames)
         path = Path.from_uri("file:///"+self.fullpath)
         self.delays = self.frame_delays_ms(path)
         if len(self.delays) < len(self.frames):
@@ -656,8 +657,12 @@ class GifLabel(Label):
 
     def advance(self) -> None:
         self._after_id = None
-        self.index = (self.index + 1) % len(self.frames)
-        self.widget.configure(image=self.frames[self.index])
+        self.index += 1
+        if self.index >= self.numberOfFrames: self.index = 0
+        try:
+            self.widget.configure(image=self.frames[self.index])
+        except:
+            pass
         self.schedule()
 
     def close(self) -> None:

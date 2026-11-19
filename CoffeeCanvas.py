@@ -3990,8 +3990,11 @@ class BasicButton(GenericObject, ActionInterface):
             
     def forceButtonOff(self):
         self.selected = False
-        self.shape.color = self.buttonColor
-        self.label.color = self.buttonTextColor
+        try: # If the button has been removed before the color change, ignore the error
+            self.shape.color = self.buttonColor
+            self.label.color = self.buttonTextColor
+        except:
+            pass
             
     def forceButtonOn(self):
         self.selected = True
@@ -4079,18 +4082,10 @@ class CanvasButton(BasicButton):
             """Button delay, in single thread everything pauses.  Multithread is not enabled!"""
             self.event = event
             self.turnButtonOn()
-            Sleep(self.delay)
-            self.turnButtonOff()
-
-            # Run any remaining actions
-            # if len(self.actions) > 0:
-            #     for function in self.actions:
-            #         if isinstance(function, list) or isinstance(function, tuple):
-            #             for nestedFunction in function:
-            #                 if nestedFunction is not None:
-            #                     nestedFunction(event)
-            #         else:
-            #             function(event)
+            delay = self.delay if self.delay > 1.0 else 1000*self.delay
+            self.canvas.root.after(int(delay), self.turnButtonOff)
+            #Sleep(self.delay)
+            #self.turnButtonOff()
         
         def toggleButton(event, *args):
             """Button toggled on and off with events"""
@@ -4102,19 +4097,6 @@ class CanvasButton(BasicButton):
                 else:
                     self.selected = True
                     self.turnButtonOn()
-
-                ############################################################################
-                # Should be handled by GenericObject.callActions() so not needed here
-                # Run any remaining actions (both toggles use this so check toggleOn)
-                # if len(self.actions) > 0:
-                #     useActions = self.actions.copy()
-                #     for function in useActions:
-                #         if isinstance(function, list) or isinstance(function, tuple):
-                #             for nestedFunction in function:
-                #                 if nestedFunction is not None:
-                #                     nestedFunction(event)
-                #         elif function is not None:
-                #             function(event)  
 
         # Various extra attributes
         self.master = False # Controls the values of other buttons in a panel (use action parameter)
