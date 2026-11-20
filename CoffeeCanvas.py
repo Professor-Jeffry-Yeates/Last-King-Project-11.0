@@ -49,6 +49,7 @@ from email.mime import text
 import tkinter as tk
 from tkinter import ttk
 import datetime
+from pathlib import Path
 # insure that pillow is installed in the version of Python that you are using.  
 # Pillow is not part of the standard Python library and must be installed separately.
 try:  
@@ -2510,7 +2511,6 @@ class CanvasTextEntry(GenericObject,ActionInterface):
         other.fill = self.fill
         return other
 
-
 class Arc(GenericObject):
     """An Arc is an outlines & filled (or None color) arc (extent and start angles provided) with a modifiable border.
     The three style(s)) are tk.PIESLICE, tk.CHORD, and tk.ARC.
@@ -3494,6 +3494,320 @@ class SmartCanvasEntry(CanvasTextEntry, ActionInterface):
     def __init__(self, canvas, *args, **kwargs):
         super().__init__(canvas, *args, **kwargs)
         ActionInterface.__init__(self, canvas, kwargs)
+ 
+class GifImage(SmartImage):
+    """An Image is a picture (based on a full url) with a modifiable size and anchor.  
+    Anchor determines 2D justication.
+    Example for anchor: anchor=tk.NW, anchor=tk.CENTER, anchor=tk.SW   Note these are actually text values
+    Use example: image = Image( canvas, Point(100,100), anchor='center',url="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png")
+                      
+     REQUIRED ARGUMENTS:
+        canvas: The canvas object is placed upon
+     ARGUMENTS:
+        x,y or tuple or Point: The location of the anchor point for the image.
+     DICTIONARY:
+        url: URL of the image -or- one or both of the following:
+        file: file name of the picture, can be "" if path is provided
+        path: path to get to the picture file, can contain the file name
+        anchor: ["center","w","e","s","n","sw","se","nw","ne"] for 2D justification
+        state: 'normal' or 'hidden' for the visibility of the object
+        tags: list of tags for the object used by Tkinter
+        width: for the picture
+        height: for the picture
+        autoDraw=True: Drawn automatically after creation, otherwise the draw() function is needed
+    DEFAULTS:
+        None
+        """
+    # Class variables:
+    defaultParameters = dict(anchor=tk.CENTER)
+    allowedParameters = ['anchor','state','tags','width','height']
+
+    def __init__(self, canvas, *args, **kwargs):
+        self.currentState = kwargs.pop("state", 'start')
+        super().__init__(self, canvas, *args, **kwargs)
+
+        self.root = self.window.root # root
+        self.frames: list[tk.PhotoImage] = []
+        self.index = 0 # Current frame
+        self.rotation = 0.0
+        self._ZERO_DELAY_MS = 100
+        self.hidden = False
+        self.displayed = False
+        self.states = ["start", "pause", "stop", "halt", "resume", "hide", "show", "unhide"]
+        self.actions = dict(
+            start=self.start,
+            pause=self.pause,
+            stop=self.stop,
+            halt=self.halt,
+            resume=self.resume,
+            hide=self.hide,
+            show=self.show,
+            unhide=self.unhide
+        )
+        self.GIFsetup()
+        if self.currentState == 'start':
+            self.start()
+
+    def GIFsetup(self):
+        # Collect all the frames in a list. The PhotoImage objects must be kept alive, 
+        # or they will be garbage collected and the label will go blank.
+        frame_index = 0
+        while True:
+            try:
+                frame = tk.PhotoImage( file=str(self.fullpath), format=f"gif -index {frame_index}", )
+            except tk.TclError:
+                break
+            self.frames.append(frame)
+            frame_index += 1
+        if not self.frames:
+            raise tk.TclError(f"Cannot read GIF:\n{self.fullpath}")
+
+        # Determine delay information
+        self.numberOfFrames = len(self.frames)
+        path = Path.from_uri("file:///"+self.fullpath)
+        self.delays = self.frame_delays_ms(path)
+        if len(self.delays) < len(self.frames):
+            self.delays.extend([self._ZERO_DELAY_MS] * (len(self.frames) - len(self.delays)))
+        else:
+            self.delays = self.delays[: len(self.frames)]
+
+    def displayAndStart(self, schedule=True):
+        # self.widget is the  tk.Label
+        self._after_id: str | None = None
+        self.displayed = True
+        #self.rotate(self.rotation)
+        if len(self.frames) > 1:
+            if schedule:self.schedule()
+
+    def schedule(self) -> None:
+        self._after_id = self.root.after(self.delays[self.index], self.advance)
+
+    def advance(self) -> None:
+        self._after_id = None
+        self.index += 1
+        if self.index >= self.numberOfFrames: self.index = 0
+        try:
+            self.widget.configure(image=self.frames[self.index])
+        except:
+            pass
+        self.schedule()
+
+    def close(self) -> None:
+        if self._after_id is not None:
+            self.root.after_cancel(self._after_id)
+            self._after_id = None
+        self.root.destroy()
+
+    def frame_delays_ms(self, path: Path) -> list[int]:
+        """Return one delay in milliseconds for each image in a GIF file.
+
+        Graphic Control Extension delays are stored in centiseconds. A delay of
+        0 is treated as 100 ms, which is what most viewers do.
+        """
+        data = path.read_bytes()
+        if len(data) < 13 or data[:6] not in (b"GIF87a", b"GIF89a"):
+            raise ValueError(f"Not a GIF file:\n{path}")
+
+        packed = data[10]
+        color_table = 3 * (2 ** ((packed & 0x07) + 1)) if packed & 0x80 else 0
+        index = 13 + color_table
+        delays: list[int] = []
+        pending_ms: int | None = None
+
+        while index < len(data):
+            marker = data[index]
+            if marker == 0x3B:
+                break
+            if marker == 0x21:
+                index, pending_ms = self.read_extension(data, index, path, pending_ms)
+                continue
+            if marker == 0x2C:
+                delays.append(self._ZERO_DELAY_MS if pending_ms is None else pending_ms)
+                pending_ms = None
+                index = self.skip_image(data, index, path)
+                continue
+            raise ValueError(f"Cannot read GIF:\n{path}")
+
+        if not delays:
+            raise ValueError(f"GIF has no frames:\n{path}")
+        return delays
+
+    def read_extension( self, 
+        data: bytes, index: int, path: Path, pending_ms: int | None ) -> tuple[int, int | None]:
+        if index + 2 > len(data):
+            raise ValueError(f"Cannot read GIF:\n{path}")
+        label = data[index + 1]
+        index += 2
+        if label == 0xF9:
+            if index >= len(data):
+                raise ValueError(f"Cannot read GIF:\n{path}")
+            block_size = data[index]
+            block = self.take(data, index + 1, block_size, path)
+            delay_cs = int.from_bytes(block[1:3], "little") if len(block) >= 3 else 0
+            pending_ms = delay_cs * 10 or self._ZERO_DELAY_MS
+            index += 1 + block_size
+            if index < len(data) and data[index] == 0:
+                index += 1
+            return index, pending_ms
+
+        while True:
+            if index >= len(data):
+                raise ValueError(f"Cannot read GIF:\n{path}")
+            block_size = data[index]
+            index += 1
+            if block_size == 0:
+                return index, pending_ms
+            self.take(data, index, block_size, path)
+            index += block_size
+
+    def skip_image(self, data: bytes, index: int, path: Path) -> int:
+        if index + 10 > len(data):
+            raise ValueError(f"Cannot read GIF:\n{path}")
+        packed = data[index + 9]
+        index += 10
+        if packed & 0x80:
+            index += 3 * (2 ** ((packed & 0x07) + 1))
+        if index >= len(data):
+            raise ValueError(f"Cannot read GIF:\n{path}")
+        index += 1  # LZW minimum code size
+        while True:
+            if index >= len(data):
+                raise ValueError(f"Cannot read GIF:\n{path}")
+            block_size = data[index]
+            index += 1
+            if block_size == 0:
+                return index
+            index += block_size
+
+    def take(self, data: bytes, index: int, size: int, path: Path) -> bytes:
+        end = index + size
+        if end > len(data):
+            raise ValueError(f"Cannot read GIF:\n{path}")
+        return data[index:end]
+
+    ##################################################
+    # Specific commands to control the GIF animation
+    def start(self, *args) -> None:
+        """Start the animation from its current or beginning frame. Unhide if hidden."""
+        if self.hidden:
+            self.unhide()
+        elif not self.displayed:
+            self.displayAndStart()
+        elif self._after_id is None:
+            self.index = 0
+            self.schedule()
+
+    def stop(self, *args) -> None:
+        """Stop the animation once its reached its last frame, set up to start at the first frame."""
+        if not self.hidden:
+            if not self.displayed:
+                self.displayAndStart(schedule=False)
+            if self._after_id is not None:
+                self.root.after_cancel(self._after_id)
+                self._after_id = None
+            self.index = 0
+            self.widget.configure(image=self.frames[self.index])
+
+    def halt(self, *args) -> None:
+        """Halt the animation at its current frame, set up to start at the beginning frame."""
+        if not self.hidden:
+            if not self.displayed:
+                self.displayAndStart(schedule=False)
+            if self._after_id is not None:
+                self.root.after_cancel(self._after_id)
+                self._after_id = None
+            self.index = 0
+            self.widget.configure(image=self.frames[self.index])
+
+    def pause(self, *args) -> None:
+        """Pause the animation where it is currently paused, set up to start at the next frame."""
+        if not self.hidden:
+            if not self.displayed:
+                self.displayAndStart(schedule=False)
+            if self._after_id is not None:
+                self.root.after_cancel(self._after_id)
+                self._after_id = None
+
+    def resume(self, *args) -> None:
+        """Continue the animation from its current frame. Unhide if hidden."""
+        if self.hidden:
+            self.unhide()
+        elif not self.displayed:
+            self.displayAndStart(schedule=False)
+        elif self._after_id is None:
+            self.schedule()
+
+    def hide(self, *args) -> None:
+        """If not hidden, stop at the current frame and hide the window title bar, set up to start at the next frame."""
+        if not self.hidden:
+            self.hidden = True
+            if self._after_id is not None:
+                self.root.after_cancel(self._after_id)
+                self._after_id = None
+            self.setInvisible()
+
+    def show(self, *args) -> None:
+        """Show at the current of frame with no movement, set up to start at the next frame. Unhide if hidden."""
+        if self.hidden:
+            self.hidden = False
+            self.setVisible()
+            self.index = 0
+            self.displayAndStart(schedule=False)
+
+    def unhide(self, *args) -> None:
+        """Unhide if hidden at the current frame the window, set up to start at the next frame."""
+        if self.hidden:
+            self.hidden = False
+            self.setVisible()
+            if self._after_id is None:
+                self.schedule()
+            elif not self.displayed:
+                self.displayAndStart()
+
+    def state(self, state: str) -> None:
+        """Set the state of the GIF animation."""
+        state = state.lower()
+        if state not in self.states:
+            raise ValueError(f"Invalid state: {state}. Must be one of {self.states}.")
+        self.currentState = state
+        action = self.actions.get(state)
+        if action:
+            action()
+
+    def rotateGif(self, degrees: float) -> None:
+        """Rotate the graphic by the specified degrees (if rotation is allowed and the GIF is displayed).
+        The image will rotate within its box, so if the box is too small, the image is cutoff."""
+        
+        if PIL_available:
+            if self.rotation != 0.0:
+                useDegrees = degrees if isinstance(degrees,float) else 0.0
+                self.rotation = useDegrees
+                for item in range(len(self.frames)):
+                    image = self.frames[item]
+                    newPILImage = ImageTk.getimage(image)
+                    newPILImage = newPILImage.rotate(useDegrees)
+                    self.frames[item] = ImageTk.PhotoImage(newPILImage)
+
+    def rotate_plus(self, degrees) -> None:
+        """Rotate the graphic by a positive degree (if rotation is allowed)."""
+        useDegrees = degrees if isinstance(degrees,float) else 1.0
+        self.rotation += abs(useDegrees)
+        if self.rotation < 0.0:
+            self.rotation += 360.0
+        elif self.rotation > 360.0:
+            self.rotation -= 360.0
+        self.rotateGif(self.rotation)
+
+    def rotate_minus(self, degrees) -> None:
+        """Rotate the graphic by a positive degree (if rotation is allowed)."""
+        useDegrees = degrees if isinstance(degrees,float) else 1.0
+        self.rotation -= abs(useDegrees)
+        if self.rotation < 0.0:
+            self.rotation += 360.0
+        elif self.rotation > 360.0:
+            self.rotation -= 360.0
+        self.rotateGif(self.rotation)
+
 
 class IndependentProcess():
     """A class for running a process in a separate thread.  
